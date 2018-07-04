@@ -21,3 +21,17 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# Diretorios de compilacao Java
+/Ecommerce/build
+/Ecommerce/dist
+
+/Ecommerce/Ecommerce-ejb/build
+/Ecommerce/Ecommerce-ejb/dist/
+
+/Ecommerce-shared/build
+/Ecommerce-shared/dist
+
+/Ecommerce-web/build
+/Ecommerce-web/dist
+
