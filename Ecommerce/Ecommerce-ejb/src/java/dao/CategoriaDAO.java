@@ -2,7 +2,12 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Categoria;
 import util.ConnectionUtil;
 
@@ -59,5 +64,44 @@ public class CategoriaDAO {
         } catch (SQLException ex) {
             throw new Exception(ex);
         }
+    }
+
+    public Categoria findById() throws Exception {
+        Categoria categoria = new Categoria();
+
+        try {
+            String SQL = "SELECT CATEGORIA.CCATEGORIA, CATEGORIA.CATEGORIA"
+                    + " FROM CATEGORIA";
+
+            PreparedStatement p = connection.prepareStatement(SQL);
+            ResultSet rs = p.executeQuery();
+
+            categoria.setCcategoria(rs.getInt("ccategoria"));
+            categoria.setCategoria(rs.getString("categoria"));
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return categoria;
+    }
+
+    public List<Categoria> findAll() throws Exception {
+        List<Categoria> lista = new ArrayList();
+        Categoria categoria = new Categoria();
+
+        try {
+            String SQL = "SELECT CATEGORIA.CCATEGORIA, CATEGORIA.CATEGORIA"
+                    + " FROM CATEGORIA";
+
+            PreparedStatement p = connection.prepareStatement(SQL);
+            ResultSet rs = p.executeQuery();
+
+            categoria.setCcategoria(rs.getInt("ccategoria"));
+            categoria.setCategoria(rs.getString("categoria"));
+
+            lista.add(categoria);
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
     }
 }

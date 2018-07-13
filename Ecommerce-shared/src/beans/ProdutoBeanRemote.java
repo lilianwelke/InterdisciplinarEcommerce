@@ -1,9 +1,13 @@
 package beans;
 
+import java.util.List;
 import javax.ejb.Remote;
+import model.Categoria;
+import model.Marca;
+import model.Produto;
 
 @Remote
-public interface ConsultaProdutoBeanRemote {
+public interface ProdutoBeanRemote {
 
     public void cadastrarProduto(int cproduto, int ccategoria, int cmarca, String produto,
             String descProduto, byte fotoProduto, double precoProduto, double promocao, int qtdeEstoque);
@@ -23,4 +27,18 @@ public interface ConsultaProdutoBeanRemote {
     public void atualizarCategoria(int ccategoria, String categoria);
 
     public void deletarCategoria(int ccategoria);
+
+    public double[] calcularPromocao(int cproduto, double promocao);
+
+    public List<Produto> getPromocao(int cproduto, double promocao);
+
+    public List<Produto> getPreco(int precoInicial, int precoFinal);
+
+    public List<Produto> getTipo(int cproduto, int ccategoria, int cmarca);
+
+    public List<Produto> getConsulta(int cproduto, int ccategoria, int cmarca, String produto);
+
+    public List<Categoria> getCategoria();
+
+    public List<Marca> getMarca();
 }

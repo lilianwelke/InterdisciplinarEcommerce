@@ -2,7 +2,12 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Marca;
 import util.ConnectionUtil;
 
@@ -61,5 +66,44 @@ public class MarcaDAO {
         } catch (SQLException ex) {
             throw new Exception(ex);
         }
+    }
+
+    public Marca findById() throws Exception {
+        Marca marca = new Marca();
+
+        try {
+            String SQL = "SELECT MARCA.CMARCA, MARCA.MARCA"
+                    + " FROM MARCA";
+
+            PreparedStatement p = connection.prepareStatement(SQL);
+            ResultSet rs = p.executeQuery();
+
+            marca.setCmarca(rs.getInt("cproduto"));
+            marca.setMarca(rs.getString("produto"));
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return marca;
+    }
+
+    public List<Marca> findAll() throws Exception {
+        List<Marca> lista = new ArrayList();
+        Marca marca = new Marca();
+
+        try {
+            String SQL = "SELECT MARCA.CMARCA, MARCA.MARCA"
+                    + " FROM MARCA";
+
+            PreparedStatement p = connection.prepareStatement(SQL);
+            ResultSet rs = p.executeQuery();
+
+            marca.setCmarca(rs.getInt("cproduto"));
+            marca.setMarca(rs.getString("produto"));
+
+            lista.add(marca);
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
     }
 }

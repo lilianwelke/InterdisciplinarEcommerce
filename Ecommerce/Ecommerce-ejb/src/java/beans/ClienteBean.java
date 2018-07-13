@@ -7,8 +7,9 @@ import javax.ejb.Stateless;
 import model.Cliente;
 
 @Stateless
-public class ConsultaClienteBean implements ConsultaClienteBeanRemote {
+public class ClienteBean implements ClienteBeanRemote {
 
+    @Override
     public void cadastrarCliente(int ccliente, String cliente, String cpf, String endereco,
             String cidade, int cep, String uf, int telefone) {
 
@@ -16,10 +17,11 @@ public class ConsultaClienteBean implements ConsultaClienteBeanRemote {
             ClienteDAO clienteDAO = new ClienteDAO();
             Cliente client = clienteDAO.inserirCliente(ccliente, cliente, cpf, endereco, cidade, cep, uf, telefone);
         } catch (Exception ex) {
-            Logger.getLogger(ConsultaClienteBean.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClienteBean.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
+    @Override
     public void atualizarCliente(int ccliente, String cliente, String cpf, String endereco,
             String cidade, int cep, String uf, int telefone) {
 
@@ -27,17 +29,18 @@ public class ConsultaClienteBean implements ConsultaClienteBeanRemote {
             ClienteDAO clienteDAO = new ClienteDAO();
             Cliente client = clienteDAO.atualizarCliente(ccliente, cliente, cpf, endereco, cidade, cep, uf, telefone);
         } catch (Exception ex) {
-            Logger.getLogger(ConsultaClienteBean.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClienteBean.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
+    @Override
     public void deletarCliente(int ccliente) {
 
         try {
             ClienteDAO clienteDAO = new ClienteDAO();
             Cliente client = clienteDAO.deletarCliente(ccliente);
         } catch (Exception ex) {
-            Logger.getLogger(ConsultaClienteBean.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClienteBean.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
