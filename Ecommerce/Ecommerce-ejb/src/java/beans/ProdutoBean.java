@@ -13,7 +13,7 @@ import model.Marca;
 import model.Produto;
 
 @Stateless
-public class ProdutoBean implements ProdutoBeanRemote {
+public class ProdutoBean implements ProdutoBeanRemote, ProdutoBeanLocal {
 
     @Override
     public void cadastrarProduto(int cproduto, int ccategoria, int cmarca, String produto,
@@ -51,6 +51,7 @@ public class ProdutoBean implements ProdutoBeanRemote {
         }
     }
 
+    @Override
     public void cadastrarMarca(int cmarca, String marca) {
 
         try {

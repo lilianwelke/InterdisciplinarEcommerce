@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registrar Categoria</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+        var URL = "http://localhost:8080/ecommerce-web/registrarcategoria";
+        function registrarCategoria(oForm) {
+                var formData = {};
+                formData["ccategoria"] = Number(oForm.ccategoria.value);
+                formData["categoria"] = oForm.categoria.value;
+                var http = new XMLHttpRequest();
+                http.onreadystatechange = function ()
+                {
+                    if (this.readyState === 4 && this.status === 200) {
+                        document.getElementById("result").innerHTML = "Ok.";
+                        console.log(this.responseText);
+                        parseJson(this.responseText);
+                    }
+                    if (this.readyState === 4 && this.status !== 200) {
+                        document.getElementById("result").innerHTML = "Erro: " + this.statusText;
+                    }
+                    if (this.readyState === 3) {
+                        document.getElementById("result").innerHTML = "Aguarde...";
+                    }
+                };
+                http.open("POST", URL);
+                http.setRequestHeader("Content-type", "application/json");
+                http.send( JSON.stringify(formData) );
+            }
+            function parseJson(jsonData) {
+                var obj = JSON.parse(jsonData);
+                document.getElementById("result").innerHTML = "" + obj.msg;
+            }
+        </script> 
+    </head>
+    <body>
+        <form name="form" method="post" action="/ecommerce-web/registrar-categoria">
+            <label>Cód. Categoria</label>
+            <input type="text" name="ccategoria" />
+            <br>
+            <label>Categoria</label>
+            <input type="text" name="categoria" />     
+            <br>            
+            <input type="button" value="Cadastrar" onclick="registrarCategoria(this.form)">
+        </form>
+        
+        <br/>
+            <span id="result"></span>
+        <br/>
+    </body>
+</html>

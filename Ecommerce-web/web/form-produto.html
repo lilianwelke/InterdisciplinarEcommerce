@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>Registrar Produto</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+        var URL = "http://localhost:8080/ecommerce-web/registrarproduto";
+        function registrarCategoria(oForm) {
+                var formData = {};
+                formData["cproduto"] = Number(oForm.cproduto.value);
+                formData["ccategoria"] = Number(oForm.ccategoria.value);
+                formData["cmarca"] = Number(oForm.cmarca.value);
+                formData["produto"] = oForm.produto.value;
+                formData["descProduto"] = oForm.descProduto.value;
+                formData["fotoProduto"] = oForm.fotoProduto.value;
+                formData["precoProduto"] = Number(oForm.precoProduto.value);
+                formData["promocao"] = Number(oForm.descProduto.value);
+                formData["qtdeEstoque"] = Number(oForm.qtdeEstoque.value);
+                var http = new XMLHttpRequest();
+                http.onreadystatechange = function ()
+                {
+                    if (this.readyState === 4 && this.status === 200) {
+                        document.getElementById("result").innerHTML = "Ok.";
+                        console.log(this.responseText);
+                        parseJson(this.responseText);
+                    }
+                    if (this.readyState === 4 && this.status !== 200) {
+                        document.getElementById("result").innerHTML = "Erro: " + this.statusText;
+                    }
+                    if (this.readyState === 3) {
+                        document.getElementById("result").innerHTML = "Aguarde...";
+                    }
+                };
+                http.open("POST", URL);
+                http.setRequestHeader("Content-type", "application/json");
+                http.send( JSON.stringify(formData) );
+            }
+            function parseJson(jsonData) {
+                var obj = JSON.parse(jsonData);
+                document.getElementById("result").innerHTML = "" + obj.msg;
+            }
+        </script> 
+    </head>
+    <body>
+        <form name="form" method="post" action="/ecommerce-web/registrar-produto">
+            <label>Cód. Produto</label>
+            <input type="text" name="cproduto" />
+            <br>
+            <label>Cód. Categoria</label>
+            <input type="text" name="ccategoria" />
+            <br>
+            <label>Cód. Marca</label>
+            <input type="text" name="cmarca" />
+            <br>
+            <label>Produto</label>
+            <input type="text" name="produto" />     
+            <br>  
+            <label>Descrição</label>
+            <input type="text" name="descProduto" />     
+            <br>
+            <label>Foto</label>
+            <input type="text" name="fotoProduto" />     
+            <br>
+            <label>Preço</label>
+            <input type="text" name="precoProduto" />     
+            <br>
+            <label>Promoção</label>
+            <input type="text" name="promocao" />     
+            <br>
+            <label>Estoque</label>
+            <input type="text" name="qtdeEstoque" />     
+            <br>
+            <input type="button" value="Cadastrar" onclick="registrarProduto(this.form)">
+        </form>
+        
+        <br/>
+            <span id="result"></span>
+        <br/>
+    </body>
+</html>

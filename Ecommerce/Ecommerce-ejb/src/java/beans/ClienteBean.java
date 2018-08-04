@@ -7,7 +7,7 @@ import javax.ejb.Stateless;
 import model.Cliente;
 
 @Stateless
-public class ClienteBean implements ClienteBeanRemote {
+public class ClienteBean implements ClienteBeanRemote, ClienteBeanLocal {
 
     @Override
     public void cadastrarCliente(int ccliente, String cliente, String cpf, String endereco,

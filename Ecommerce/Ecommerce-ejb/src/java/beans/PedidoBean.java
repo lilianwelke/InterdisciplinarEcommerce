@@ -12,7 +12,7 @@ import model.ItemPedido;
 import model.Pedido;
 
 @Stateless
-public class PedidoBean implements PedidoBeanRemote {
+public class PedidoBean implements PedidoBeanRemote, PedidoBeanLocal {
 
     @Override
     public void cadastrarItem(int citemPedido, int cpedido, int cproduto, double qtdeProduto, double precoProduto) {
@@ -102,7 +102,7 @@ public class PedidoBean implements PedidoBeanRemote {
         }
     }
 
-    @Override
+//    @Override
     public List<ItemPedido> carrinho(int cpedido) {
         ArrayList<ItemPedido> itemPed = null;
 
@@ -116,7 +116,7 @@ public class PedidoBean implements PedidoBeanRemote {
         return itemPed;
     }
 
-    @Override
+//    @Override
     public List<Pedido> vendas() {
         ArrayList<Pedido> ped = null;
 

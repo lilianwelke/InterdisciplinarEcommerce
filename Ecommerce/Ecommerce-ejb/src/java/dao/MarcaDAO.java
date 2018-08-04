@@ -26,7 +26,7 @@ public class MarcaDAO {
     public Marca inserirMarca(int cmarca, String marca) throws Exception {
         try {
             Marca marc = new Marca();
-            String SQL = "INSERT INTO PEDIDO (CMARCA, MARCA) VALUES (?, ?)";
+            String SQL = "INSERT INTO MARCA (CMARCA, MARCA) VALUES (?, ?)";
             PreparedStatement p = connection.prepareStatement(SQL);
             p.setInt(1, cmarca);
             p.setString(2, marca);

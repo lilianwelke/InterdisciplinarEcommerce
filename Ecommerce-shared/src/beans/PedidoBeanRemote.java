@@ -6,9 +6,6 @@
 package beans;
 
 import java.util.Date;
-import java.util.List;
-import model.ItemPedido;
-import model.Pedido;
 
 /**
  *
@@ -30,10 +27,9 @@ public interface PedidoBeanRemote {
 
     public boolean concluido(String concluida);
 
-    public List<ItemPedido> carrinho(int cpedido);
-
-    public List<Pedido> vendas();
-
+//    public List<ItemPedido> carrinho(int cpedido);
+//
+//    public List<Pedido> vendas();
     public void totalCompra(int cpedido, int citempedido, double precoPedido, int qtde, double totalCompra);
 
 }
