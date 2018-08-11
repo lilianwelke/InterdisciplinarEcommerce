@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registrar Cliente</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+        var URL = "http://localhost:8080/ecommerce-web/registrarcliente";
+        function registrarCliente(oForm) {
+                var formData = {};
+                formData["ccliente"] = Number(oForm.ccliente.value);
+                formData["cliente"] = oForm.cliente.value;
+                formData["cpf"] = oForm.cpf.value;
+                formData["endereco"] = oForm.endereco.value;
+                formData["cidade"] = oForm.cidade.value;
+                formData["cep"] = oForm.cep.value;
+                formData["uf"] = oForm.uf.value;
+                formData["telefone"] = oForm.telefone.value;
+                formData["senha"] = oForm.senha.value;
+                var http = new XMLHttpRequest();
+                http.onreadystatechange = function ()
+                {
+                    if (this.readyState === 4 && this.status === 200) {
+                        document.getElementById("result").innerHTML = "Ok.";
+                        console.log(this.responseText);
+                        parseJson(this.responseText);
+                    }
+                    if (this.readyState === 4 && this.status !== 200) {
+                        document.getElementById("result").innerHTML = "Erro: " + this.statusText;
+                    }
+                    if (this.readyState === 3) {
+                        document.getElementById("result").innerHTML = "Aguarde...";
+                    }
+                };
+                http.open("POST", URL);
+                http.setRequestHeader("Content-type", "application/json");
+                http.send( JSON.stringify(formData) );
+            }
+            function parseJson(jsonData) {
+                var obj = JSON.parse(jsonData);
+                document.getElementById("result").innerHTML = "" + obj.msg;
+            }
+        </script> 
+    </head>
+    <body>
+        <form name="form" method="post" action="/ecommerce-web/registrar-cliente">
+            <label>Cód. Cliente</label>
+            <input type="text" name="ccliente" />
+            <br>
+            <label>Nome Cliente</label>
+            <input type="text" name="cliente" />
+            <br>
+            <label>CPF</label>
+            <input type="text" name="cpf" />
+            <br>
+            <label>Endereço (Rua, Número, Bairro, Complemento)</label>
+            <input type="text" name="endereco" />     
+            <br>  
+            <label>Cidade</label>
+            <input type="text" name="cidade" />     
+            <br>
+            <label>CEP</label>
+            <input type="text" name="cep" />     
+            <br>
+            <label>UF</label>
+            <input type="text" name="uf" />     
+            <br>
+            <label>Telefone</label>
+            <input type="text" name="telefone" />     
+            <br>
+            <label>Senha</label>
+            <input type="text" name="senha" />     
+            <br>
+            <input type="button" value="Cadastrar" onclick="registrarCliente(this.form)">
+        </form>
+        
+        <br/>
+            <span id="result"></span>
+        <br/>
+    </body>
+</html>

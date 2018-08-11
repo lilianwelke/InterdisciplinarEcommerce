@@ -11,11 +11,11 @@ public class ClienteBean implements ClienteBeanRemote, ClienteBeanLocal {
 
     @Override
     public void cadastrarCliente(int ccliente, String cliente, String cpf, String endereco,
-            String cidade, int cep, String uf, int telefone) {
+            String cidade, String cep, String uf, String telefone, String senha) {
 
         try {
             ClienteDAO clienteDAO = new ClienteDAO();
-            Cliente client = clienteDAO.inserirCliente(ccliente, cliente, cpf, endereco, cidade, cep, uf, telefone);
+            Cliente client = clienteDAO.inserirCliente(ccliente, cliente, cpf, endereco, cidade, cep, uf, telefone, senha);
         } catch (Exception ex) {
             Logger.getLogger(ClienteBean.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -23,11 +23,11 @@ public class ClienteBean implements ClienteBeanRemote, ClienteBeanLocal {
 
     @Override
     public void atualizarCliente(int ccliente, String cliente, String cpf, String endereco,
-            String cidade, int cep, String uf, int telefone) {
+            String cidade, String cep, String uf, String telefone, String senha) {
 
         try {
             ClienteDAO clienteDAO = new ClienteDAO();
-            Cliente client = clienteDAO.atualizarCliente(ccliente, cliente, cpf, endereco, cidade, cep, uf, telefone);
+            Cliente client = clienteDAO.atualizarCliente(ccliente, cliente, cpf, endereco, cidade, cep, uf, telefone, senha);
         } catch (Exception ex) {
             Logger.getLogger(ClienteBean.class.getName()).log(Level.SEVERE, null, ex);
         }

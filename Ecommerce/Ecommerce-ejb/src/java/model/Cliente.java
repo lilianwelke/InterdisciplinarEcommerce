@@ -1,14 +1,17 @@
 package model;
 
 public class Cliente {
+
     private int ccliente;
     private String cliente;
     private String cpf;
     private String endereco;
     private String cidade;
-    private int cep;
+    private String cep;
     private String uf;
-    private int telefone;
+    private String telefone;
+
+    private String senha;
 
     public int getCcliente() {
         return ccliente;
@@ -50,11 +53,11 @@ public class Cliente {
         this.cidade = cidade;
     }
 
-    public int getCep() {
+    public String getCep() {
         return cep;
     }
 
-    public void setCep(int cep) {
+    public void setCep(String cep) {
         this.cep = cep;
     }
 
@@ -66,11 +69,20 @@ public class Cliente {
         this.uf = uf;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
 }

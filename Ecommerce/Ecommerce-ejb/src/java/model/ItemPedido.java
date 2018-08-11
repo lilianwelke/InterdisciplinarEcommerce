@@ -1,6 +1,7 @@
 package model;
 
 public class ItemPedido {
+
     private int citemPedido;
     private Pedido cpedido;
     private Produto cproduto;

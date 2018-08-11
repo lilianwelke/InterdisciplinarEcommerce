@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registrar Pedido</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+        var URL = "http://localhost:8080/ecommerce-web/registrarpedido";
+        function registrarPedido(oForm) {
+                var formData = {};
+                formData["cpedido"] = Number(oForm.cpedido.value);
+                formData["ccliente"] = Number(oForm.ccliente.value);                
+                formData["dataCompra"] = oForm.dataCompra.value;
+                formData["totalCompra"] = Number(oForm.totalCompra.value);
+                formData["pagamento"] = oForm.pagamento.value;
+                formData["concluida"] = oForm.concluida.value;
+                formData["frete"] = Number(oForm.frete.value);                
+                var http = new XMLHttpRequest();
+                http.onreadystatechange = function ()
+                {
+                    if (this.readyState === 4 && this.status === 200) {
+                        document.getElementById("result").innerHTML = "Ok.";
+                        console.log(this.responseText);
+                        parseJson(this.responseText);
+                    }
+                    if (this.readyState === 4 && this.status !== 200) {
+                        document.getElementById("result").innerHTML = "Erro: " + this.statusText;
+                    }
+                    if (this.readyState === 3) {
+                        document.getElementById("result").innerHTML = "Aguarde...";
+                    }
+                };
+                http.open("POST", URL);
+                http.setRequestHeader("Content-type", "application/json");
+                http.send( JSON.stringify(formData) );
+            }
+            function parseJson(jsonData) {
+                var obj = JSON.parse(jsonData);
+                document.getElementById("result").innerHTML = "" + obj.msg;
+            }
+        </script> 
+    </head>
+    <body>
+            <br />
+            <span id="result"></span>
+            <br />
+            
+        <form name="form1" method="post" 
+              action="/ecommerce-web/registrar-pedido">
+            <label>ID Pedido</label>
+            <input type="text" name="cpedido" />
+            <br>
+            <label>ID Cliente</label>
+            <input type="text" name="ccliente" />
+            <br>
+            <label>Data</label>
+            <input type="text" name="dataCompra" />
+            <br>
+            <label>Total </label>
+            <input type="text" name="totalCompra" />
+            <br>
+            <label>Pagamento</label>
+            <input type="text" name="pagamento" />
+            <br>   
+            <label>Concluída</label>
+            <input type="text" name="concluida" />
+            <br>   
+            <label>Frete</label>
+            <input type="text" name="frete" />
+            <br>   
+            <input type="button" value="Comprar" onclick="registrarPedido(this.form)">
+        </form>
+    </body>
+</html>
