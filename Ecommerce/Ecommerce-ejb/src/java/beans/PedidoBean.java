@@ -51,14 +51,14 @@ public class PedidoBean implements PedidoBeanRemote, PedidoBeanLocal {
     }
 
     @Override
-    public void cadastrarPedido(int cpedido, int ccliente, Date dataCompra, Double totalCompra,
-            String pagamento, String concluida, Double frete) {
+    public void cadastrarPedido(int cpedido, int ccliente, Date dataCompra, double totalCompra,
+            String pagamento, String concluida, double frete) {
 
         try {
-            if (concluida.equals("N")) {
-                PedidoDAO pedidoDAO = new PedidoDAO();
-                Pedido pedido = pedidoDAO.inserirPedido(cpedido, ccliente, dataCompra, totalCompra, pagamento, concluida, frete);
-            }
+            //if (concluida.equals("N")) {
+            PedidoDAO pedidoDAO = new PedidoDAO();
+            Pedido pedido = pedidoDAO.inserirPedido(cpedido, ccliente, dataCompra, totalCompra, pagamento, concluida, frete);
+            //}
 
         } catch (Exception ex) {
             Logger.getLogger(PedidoBean.class.getName()).log(Level.SEVERE, null, ex);
@@ -67,8 +67,8 @@ public class PedidoBean implements PedidoBeanRemote, PedidoBeanLocal {
     }
 
     @Override
-    public void atualizarPedido(int cpedido, int ccliente, Date dataCompra, Double totalCompra,
-            String pagamento, String concluida, Double frete) {
+    public void atualizarPedido(int cpedido, int ccliente, Date dataCompra, double totalCompra,
+            String pagamento, String concluida, double frete) {
 
         try {
             if (concluida.equals("N")) {

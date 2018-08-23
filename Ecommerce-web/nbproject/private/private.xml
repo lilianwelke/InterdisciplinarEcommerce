@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/projeto/Ecommerce-web/web/form-marca.html</file>
-            <file>file:/C:/projeto/Ecommerce-web/src/java/web/RegistrarPedidoServlet.java</file>
-            <file>file:/C:/projeto/Ecommerce-web/web/WEB-INF/web.xml</file>
-            <file>file:/C:/projeto/Ecommerce-web/web/form-cliente.html</file>
+            <file>file:/C:/projeto/Ecommerce-web/src/java/web/RegistrarProdutoServlet.java</file>
+            <file>file:/C:/projeto/Ecommerce-web/web/form-produto.html</file>
             <file>file:/C:/projeto/Ecommerce-web/web/form-pedido.html</file>
-            <file>file:/C:/projeto/Ecommerce-web/src/java/web/RegistrarClienteServlet.java</file>
         </group>
     </open-files>
 </project-private>

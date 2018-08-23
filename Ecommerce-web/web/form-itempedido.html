@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registrar Item Pedido</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+        var URL = "http://localhost:8080/ecommerce-web/registraritempedido";
+        function registrarItemPedido(oForm) {
+                var formData = {};
+                formData["citemPedido"] = Number(oForm.citemPedido.value);
+                formData["cpedido"] = Number(oForm.cpedido.value);    
+                formData["cproduto"] = Number(oForm.cproduto.value);  
+                formData["qtdeProduto"] = Number(oForm.qtdeProduto.value);
+                formData["precoProduto"] = Number(oForm.precoProduto.value);                
+                var http = new XMLHttpRequest();
+                http.onreadystatechange = function ()
+                {
+                    if (this.readyState === 4 && this.status === 200) {
+                        document.getElementById("result").innerHTML = "Ok.";
+                        console.log(this.responseText);
+                        parseJson(this.responseText);
+                    }
+                    if (this.readyState === 4 && this.status !== 200) {
+                        document.getElementById("result").innerHTML = "Erro: " + this.statusText;
+                    }
+                    if (this.readyState === 3) {
+                        document.getElementById("result").innerHTML = "Aguarde...";
+                    }
+                };
+                http.open("POST", URL);
+                http.setRequestHeader("Content-type", "application/json");
+                http.send( JSON.stringify(formData) );
+            }
+            function parseJson(jsonData) {
+                var obj = JSON.parse(jsonData);
+                document.getElementById("result").innerHTML = "" + obj.msg;
+            }
+        </script> 
+    </head>
+    <body>
+            <br />
+            <span id="result"></span>
+            <br />
+            
+        <form name="form1" method="post" 
+              action="/ecommerce-web/registrar-itempedido">
+            <label>ID Item Pedido</label>
+            <input type="text" name="citemPedido" />
+            <br>
+            <label>ID Pedido</label>
+            <input type="text" name="cpedido" />
+            <br>
+            <label>ID Produto</label>
+            <input type="text" name="cproduto" />
+            <br>
+            <label>Quantidade Produto </label>
+            <input type="text" name="qtdeProduto" />
+            <br>
+            <label>Preco Produto</label>
+            <input type="text" name="precoProduto" />
+            <br>   
+            <input type="button" value="Comprar" onclick="registrarItemPedido(this.form)">
+        </form>
+    </body>
+</html>

@@ -37,4 +37,5 @@ public interface ProdutoBeanRemote {
 //    public List<Categoria> getCategoria();
 //
 //    public List<Marca> getMarca();
+
 }

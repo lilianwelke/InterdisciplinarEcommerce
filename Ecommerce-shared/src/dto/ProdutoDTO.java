@@ -1,16 +1,19 @@
-package model;
+package dto;
 
-public class Produto {
+import java.io.Serializable;
+
+public class ProdutoDTO implements Serializable {
 
     private int cproduto;
-    private Categoria ccategoria;
-    private Marca cmarca;
+    private CategoriaDTO ccategoria;
+    private MarcaDTO cmarca;
     private String produto;
     private String descProduto;
     private byte[] fotoProduto;
     private double precoProduto;
     private double promocao;
     private int qtdeEstoque;
+    private String upload;
 
     public int getCproduto() {
         return cproduto;
@@ -20,19 +23,19 @@ public class Produto {
         this.cproduto = cproduto;
     }
 
-    public Categoria getCcategoria() {
+    public CategoriaDTO getCcategoria() {
         return ccategoria;
     }
 
-    public void setCcategoria(Categoria ccategoria) {
+    public void setCcategoria(CategoriaDTO ccategoria) {
         this.ccategoria = ccategoria;
     }
 
-    public Marca getCmarca() {
+    public MarcaDTO getCmarca() {
         return cmarca;
     }
 
-    public void setCmarca(Marca cmarca) {
+    public void setCmarca(MarcaDTO cmarca) {
         this.cmarca = cmarca;
     }
 
@@ -82,6 +85,14 @@ public class Produto {
 
     public void setQtdeEstoque(int qtdeEstoque) {
         this.qtdeEstoque = qtdeEstoque;
+    }
+
+    public String getUpload() {
+        return upload;
+    }
+
+    public void setUpload(String upload) {
+        this.upload = upload;
     }
 
 }

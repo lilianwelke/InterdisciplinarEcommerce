@@ -60,7 +60,7 @@ public class ProdutoDAO {
             p.setByte(5, fotoProduto);
             p.setDouble(6, precoProduto);
             p.setDouble(7, promocao);
-            p.setInt(8, qtdeEstoque);
+            p.setInt(8, qtdeEstoque);;
             p.setInt(9, cproduto);
             p.execute();
             p.close();

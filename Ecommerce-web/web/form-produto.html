@@ -5,17 +5,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript">
         var URL = "http://localhost:8080/ecommerce-web/registrarproduto";
-        function registrarCategoria(oForm) {
+        function registrarProduto(oForm) {
                 var formData = {};
                 formData["cproduto"] = Number(oForm.cproduto.value);
                 formData["ccategoria"] = Number(oForm.ccategoria.value);
                 formData["cmarca"] = Number(oForm.cmarca.value);
                 formData["produto"] = oForm.produto.value;
                 formData["descProduto"] = oForm.descProduto.value;
-                formData["fotoProduto"] = oForm.fotoProduto.value;
+                
+                var reader = new FileReader();
+                reader.readAsDataURL(oForm.upload.files[0]);
+                reader.onload = function () {
+                    formData["upload"] = reader.result;
+                    registrarProduto(formData);
+                };
+                reader.onerror = function (error) {
+                    console.log(error);
+                };
+                                
                 formData["precoProduto"] = Number(oForm.precoProduto.value);
                 formData["promocao"] = Number(oForm.descProduto.value);
                 formData["qtdeEstoque"] = Number(oForm.qtdeEstoque.value);
+                
                 var http = new XMLHttpRequest();
                 http.onreadystatechange = function ()
                 {
@@ -42,8 +53,8 @@
         </script> 
     </head>
     <body>
-        <form name="form" method="post" action="/ecommerce-web/registrar-produto">
-            <label>Cód. Produto</label>
+        <form name="form" method="post" action="/ecommerce-web/registrar-">
+            <label>Cód. Produto</label>produto
             <input type="text" name="cproduto" />
             <br>
             <label>Cód. Categoria</label>
@@ -59,7 +70,7 @@
             <input type="text" name="descProduto" />     
             <br>
             <label>Foto</label>
-            <input type="text" name="fotoProduto" />     
+            <input type="file" name="fotoProduto" />     
             <br>
             <label>Preço</label>
             <input type="text" name="precoProduto" />     

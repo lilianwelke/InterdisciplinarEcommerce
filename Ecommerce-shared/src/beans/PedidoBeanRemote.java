@@ -6,11 +6,13 @@
 package beans;
 
 import java.util.Date;
+import javax.ejb.Remote;
 
 /**
  *
  * @author Gabrielli Vianna
  */
+@Remote
 public interface PedidoBeanRemote {
 
     public void cadastrarItem(int citemPedido, int cpedido, int cproduto, double qtdeProduto, double precoProduto);
@@ -19,9 +21,9 @@ public interface PedidoBeanRemote {
 
     public void deletarItem(int citemPedido);
 
-    public void cadastrarPedido(int cpedido, int ccliente, Date dataCompra, Double totalCompra, String pagamento, String concluida, Double frete);
+    public void cadastrarPedido(int cpedido, int ccliente, Date dataCompra, double totalCompra, String pagamento, String concluida, double frete);
 
-    public void atualizarPedido(int cpedido, int ccliente, Date dataCompra, Double totalCompra, String pagamento, String concluida, Double frete);
+    public void atualizarPedido(int cpedido, int ccliente, Date dataCompra, double totalCompra, String pagamento, String concluida, double frete);
 
     public void deletarPedido(int cpedido);
 

@@ -20,6 +20,10 @@
         <servlet-name>RegistrarPedidoServlet</servlet-name>
         <servlet-class>web.RegistrarPedidoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegistrarItemPedidoServlet</servlet-name>
+        <servlet-class>web.RegistrarItemPedidoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistrarCategoriaServlet</servlet-name>
         <url-pattern>/registrarcategoria</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>RegistrarPedidoServlet</servlet-name>
         <url-pattern>/registrarpedido</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistrarItemPedidoServlet</servlet-name>
+        <url-pattern>/registraritempedido</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

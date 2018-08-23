@@ -1,8 +1,6 @@
-package model;
+package dto;
 
-import java.io.Serializable;
-
-public class Marca implements Serializable {
+public class MarcaDTO {
 
     private int cmarca;
     private String marca;

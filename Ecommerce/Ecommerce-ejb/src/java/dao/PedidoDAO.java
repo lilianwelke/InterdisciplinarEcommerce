@@ -21,8 +21,8 @@ public class PedidoDAO {
         connection = ConnectionUtil.getConnection();
     }
 
-    public Pedido inserirPedido(int cpedido, int ccliente, Date dataCompra, Double totalCompra,
-            String pagamento, String concluida, Double frete) throws Exception {
+    public Pedido inserirPedido(int cpedido, int ccliente, Date dataCompra, double totalCompra,
+            String pagamento, String concluida, double frete) throws Exception {
 
         try {
             Pedido pedid = new Pedido();
@@ -30,7 +30,7 @@ public class PedidoDAO {
             PreparedStatement p = connection.prepareStatement(SQL);
             p.setInt(1, cpedido);
             p.setInt(2, ccliente);
-            p.setDate(3, (java.sql.Date) dataCompra);
+            p.setDate(3, new java.sql.Date(dataCompra.getTime()));
             p.setDouble(4, totalCompra);
             p.setString(5, pagamento);
             p.setString(6, concluida);
@@ -44,7 +44,7 @@ public class PedidoDAO {
     }
 
     public Pedido atualizarPedido(int cpedido, int ccliente, Date dataCompra,
-            Double totalCompra, String pagamento, String concluida, Double frete) throws Exception {
+            double totalCompra, String pagamento, String concluida, double frete) throws Exception {
         try {
             Pedido pedid = new Pedido();
             String SQL = "UPDATE PEDIDO SET CCLIENTE=?, DATACOMPRA=?, TOTALCOMPRA=?, PAGAMENTO=?,"
