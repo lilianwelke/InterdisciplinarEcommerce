@@ -6,9 +6,9 @@ import javax.ejb.Remote;
 public interface ProdutoBeanRemote {
 
     public void cadastrarProduto(int cproduto, int ccategoria, int cmarca, String produto,
-            String descProduto, byte fotoProduto, double precoProduto, double promocao, int qtdeEstoque);
+            String descProduto, String fotoProduto, double precoProduto, double promocao, int qtdeEstoque);
 
-    public void atualizarProduto(int cproduto, int ccategoria, int cmarca, String produto, String descProduto, byte fotoProduto, double precoProduto, double promocao, int qtdeEstoque);
+    public void atualizarProduto(int cproduto, int ccategoria, int cmarca, String produto, String descProduto, String fotoProduto, double precoProduto, double promocao, int qtdeEstoque);
 
     public void deletarProduto(int cproduto);
 

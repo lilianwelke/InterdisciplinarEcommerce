@@ -22,7 +22,7 @@ public class ProdutoDAO {
     }
 
     public Produto inserirProduto(int cproduto, int ccategoria, int cmarca, String produto,
-            String descProduto, byte fotoProduto, double precoProduto, double promocao, int qtdeEstoque) throws Exception {
+            String descProduto, String fotoProduto, double precoProduto, double promocao, int qtdeEstoque) throws Exception {
         try {
             Produto prod = new Produto();
             String SQL = "INSERT INTO PRODUTO (CPRODUTO, CCATEGORIA, CMARCA, PRODUTO, DESCPRODUTO, FOTOPRODUTO, PRECOPRODUTO, PROMOCAO, QTDEESTOQUE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -33,7 +33,7 @@ public class ProdutoDAO {
             p.setInt(3, cmarca);
             p.setString(4, produto);
             p.setString(5, descProduto);
-            p.setByte(6, fotoProduto);
+            p.setString(6, fotoProduto);
             p.setDouble(7, precoProduto);
             p.setDouble(8, promocao);
             p.setInt(9, qtdeEstoque);
@@ -46,7 +46,7 @@ public class ProdutoDAO {
     }
 
     public Produto atualizarProduto(int cproduto, int ccategoria, int cmarca, String produto,
-            String descProduto, byte fotoProduto, double precoProduto, double promocao, int qtdeEstoque) throws Exception {
+            String descProduto, String fotoProduto, double precoProduto, double promocao, int qtdeEstoque) throws Exception {
 
         try {
             Produto prod = new Produto();
@@ -57,7 +57,7 @@ public class ProdutoDAO {
             p.setInt(2, cmarca);
             p.setString(3, produto);
             p.setString(4, descProduto);
-            p.setByte(5, fotoProduto);
+            p.setString(5, fotoProduto);
             p.setDouble(6, precoProduto);
             p.setDouble(7, promocao);
             p.setInt(8, qtdeEstoque);;
@@ -103,7 +103,7 @@ public class ProdutoDAO {
                 prod.setCproduto(rs.getInt("cproduto"));
                 prod.setProduto(rs.getString("produto"));
                 prod.setDescProduto(rs.getString("descproduto"));
-                prod.setFotoProduto(rs.getBytes("fotoproduto"));
+                prod.setFotoProduto(rs.getString("fotoproduto"));
                 prod.setPrecoProduto(rs.getDouble("precoproduto"));
                 prod.setPromocao(rs.getDouble("promocao"));
                 prod.setQtdeEstoque(rs.getInt("qtdestoque"));
@@ -144,7 +144,7 @@ public class ProdutoDAO {
                 prod.setCproduto(rs.getInt("cproduto"));
                 prod.setProduto(rs.getString("produto"));
                 prod.setDescProduto(rs.getString("descproduto"));
-                prod.setFotoProduto(rs.getBytes("fotoproduto"));
+                prod.setFotoProduto(rs.getString("fotoproduto"));
                 prod.setPrecoProduto(rs.getDouble("precoproduto"));
                 prod.setPromocao(rs.getDouble("promocao"));
                 prod.setQtdeEstoque(rs.getInt("qtdestoque"));
@@ -192,7 +192,7 @@ public class ProdutoDAO {
                 prod.setCproduto(rs.getInt("cproduto"));
                 prod.setProduto(rs.getString("produto"));
                 prod.setDescProduto(rs.getString("descproduto"));
-                prod.setFotoProduto(rs.getBytes("fotoproduto"));
+                prod.setFotoProduto(rs.getString("fotoproduto"));
                 prod.setPrecoProduto(rs.getDouble("precoproduto"));
                 prod.setPromocao(rs.getDouble("promocao"));
                 prod.setQtdeEstoque(rs.getInt("qtdestoque"));
@@ -239,7 +239,7 @@ public class ProdutoDAO {
                 prod.setCproduto(rs.getInt("cproduto"));
                 prod.setProduto(rs.getString("produto"));
                 prod.setDescProduto(rs.getString("descproduto"));
-                prod.setFotoProduto(rs.getBytes("fotoproduto"));
+                prod.setFotoProduto(rs.getString("fotoproduto"));
                 prod.setPrecoProduto(rs.getDouble("precoproduto"));
                 prod.setPromocao(rs.getDouble("promocao"));
                 prod.setQtdeEstoque(rs.getInt("qtdestoque"));
@@ -297,7 +297,7 @@ public class ProdutoDAO {
                 prod.setCproduto(rs.getInt("cproduto"));
                 prod.setProduto(rs.getString("produto"));
                 prod.setDescProduto(rs.getString("descproduto"));
-                prod.setFotoProduto(rs.getBytes("fotoproduto"));
+                prod.setFotoProduto(rs.getString("fotoproduto"));
                 prod.setPrecoProduto(rs.getDouble("precoproduto"));
                 prod.setPromocao(rs.getDouble("promocao"));
                 prod.setQtdeEstoque(rs.getInt("qtdestoque"));
@@ -359,7 +359,7 @@ public class ProdutoDAO {
                 prod.setCproduto(rs.getInt("cproduto"));
                 prod.setProduto(rs.getString("produto"));
                 prod.setDescProduto(rs.getString("descproduto"));
-                prod.setFotoProduto(rs.getBytes("fotoproduto"));
+                prod.setFotoProduto(rs.getString("fotoproduto"));
                 prod.setPrecoProduto(rs.getDouble("precoproduto"));
                 prod.setPromocao(rs.getDouble("promocao"));
                 prod.setQtdeEstoque(rs.getInt("qtdestoque"));

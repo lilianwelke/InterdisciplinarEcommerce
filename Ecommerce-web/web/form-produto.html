@@ -4,8 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript">
-        var URL = "http://localhost:8080/ecommerce-web/registrarproduto";
-        function registrarProduto(oForm) {
+            var URL = "http://localhost:8080/ecommerce-web/registrarproduto";
+            function registrarProduto(oForm) {
                 var formData = {};
                 formData["cproduto"] = Number(oForm.cproduto.value);
                 formData["ccategoria"] = Number(oForm.ccategoria.value);
@@ -14,19 +14,19 @@
                 formData["descProduto"] = oForm.descProduto.value;
                 
                 var reader = new FileReader();
-                reader.readAsDataURL(oForm.upload.files[0]);
+                reader.readAsDataURL(document.querySelector('#foto').files[0]);
                 reader.onload = function () {
-                    formData["upload"] = reader.result;
-                    registrarProduto(formData);
+                    console.log(reader.result);
+                    formData["fotoProduto"] = reader.result;
                 };
                 reader.onerror = function (error) {
-                    console.log(error);
+                    console.log('Error: ', error);
                 };
-                                
+            
                 formData["precoProduto"] = Number(oForm.precoProduto.value);
-                formData["promocao"] = Number(oForm.descProduto.value);
+                formData["promocao"] = Number(oForm.promocao.value);
                 formData["qtdeEstoque"] = Number(oForm.qtdeEstoque.value);
-                
+
                 var http = new XMLHttpRequest();
                 http.onreadystatechange = function ()
                 {
@@ -44,8 +44,9 @@
                 };
                 http.open("POST", URL);
                 http.setRequestHeader("Content-type", "application/json");
-                http.send( JSON.stringify(formData) );
+                http.send(JSON.stringify(formData));
             }
+            
             function parseJson(jsonData) {
                 var obj = JSON.parse(jsonData);
                 document.getElementById("result").innerHTML = "" + obj.msg;
@@ -53,8 +54,8 @@
         </script> 
     </head>
     <body>
-        <form name="form" method="post" action="/ecommerce-web/registrar-">
-            <label>Cód. Produto</label>produto
+        <form name="form" method="post" action="/ecommerce-web/registrar-produto">
+            <label>Cód. Produto</label>
             <input type="text" name="cproduto" />
             <br>
             <label>Cód. Categoria</label>
@@ -70,7 +71,7 @@
             <input type="text" name="descProduto" />     
             <br>
             <label>Foto</label>
-            <input type="file" name="fotoProduto" />     
+            <input type="file" name="fotoProduto" id="foto"/>     
             <br>
             <label>Preço</label>
             <input type="text" name="precoProduto" />     
@@ -83,9 +84,9 @@
             <br>
             <input type="button" value="Cadastrar" onclick="registrarProduto(this.form)">
         </form>
-        
+
         <br/>
-            <span id="result"></span>
+        <span id="result"></span>
         <br/>
     </body>
 </html>

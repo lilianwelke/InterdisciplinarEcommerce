@@ -17,7 +17,7 @@ public class ProdutoBean implements ProdutoBeanRemote, ProdutoBeanLocal {
 
     @Override
     public void cadastrarProduto(int cproduto, int ccategoria, int cmarca, String produto,
-            String descProduto, byte fotoProduto, double precoProduto, double promocao, int qtdeEstoque) {
+            String descProduto, String fotoProduto, double precoProduto, double promocao, int qtdeEstoque) {
 
         try {
             ProdutoDAO produtoDAO = new ProdutoDAO();
@@ -30,7 +30,7 @@ public class ProdutoBean implements ProdutoBeanRemote, ProdutoBeanLocal {
     }
 
     public void atualizarProduto(int cproduto, int ccategoria, int cmarca, String produto,
-            String descProduto, byte fotoProduto, double precoProduto, double promocao, int qtdeEstoque) {
+            String descProduto, String fotoProduto, double precoProduto, double promocao, int qtdeEstoque) {
 
         try {
             ProdutoDAO produtoDAO = new ProdutoDAO();

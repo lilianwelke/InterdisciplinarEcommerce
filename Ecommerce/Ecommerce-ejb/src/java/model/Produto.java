@@ -7,7 +7,7 @@ public class Produto {
     private Marca cmarca;
     private String produto;
     private String descProduto;
-    private byte[] fotoProduto;
+    private String fotoProduto;
     private double precoProduto;
     private double promocao;
     private int qtdeEstoque;
@@ -52,11 +52,11 @@ public class Produto {
         this.descProduto = descProduto;
     }
 
-    public byte[] getFotoProduto() {
+    public String getFotoProduto() {
         return fotoProduto;
     }
 
-    public void setFotoProduto(byte[] fotoProduto) {
+    public void setFotoProduto(String fotoProduto) {
         this.fotoProduto = fotoProduto;
     }
 
