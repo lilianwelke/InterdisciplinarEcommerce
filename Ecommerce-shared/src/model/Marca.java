@@ -7,6 +7,10 @@ public class Marca implements Serializable {
     private int cmarca;
     private String marca;
 
+    public String toString() {
+        return "\"" + this.marca + "\"";
+    }
+
     public int getCmarca() {
         return cmarca;
     }

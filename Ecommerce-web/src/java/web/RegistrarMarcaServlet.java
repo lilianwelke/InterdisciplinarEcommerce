@@ -44,4 +44,5 @@ public class RegistrarMarcaServlet extends HttpServlet {
 
         saida.print("{\"msg\":\"Certo\"}");
     }
+
 }

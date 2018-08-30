@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+            var URL = "http://localhost:8080/ecommerce-web/pedido";
+//            function getMarca() {
+//                var http = new XMLHttpRequest();
+//                http.onreadystatechange = function ()
+//                {
+//                    if (this.readyState === 4 && this.status === 200) {
+//                        document.getElementById("result").innerHTML = "Ok.";
+//                        console.log(this.responseText);
+//                        parseJson(this.responseText);
+//                    }
+//                    if (this.readyState === 4 && this.status !== 200) {
+//                        document.getElementById("result").innerHTML = "Erro: " + this.statusText;
+//                    }
+//                    if (this.readyState === 3) {
+//                        document.getElementById("result").innerHTML = "Aguarde...";
+//                    }
+//                };
+//                http.open("GET", URL);
+//                http.setRequestHeader("Authorization", "ehaiuahdfu32ioqpeyrq");
+//                http.send();
+//            }
+
+//            function getProduto() {
+//                var http = new XMLHttpRequest();
+//                http.onreadystatechange = function ()
+//                {
+//                    if (this.readyState === 4 && this.status === 200) {
+//                        document.getElementById("result").innerHTML = "Ok.";
+//                        console.log(this.responseText);
+//                        parseJson(this.responseText);
+//                    }
+//                    if (this.readyState === 4 && this.status !== 200) {
+//                        document.getElementById("result").innerHTML = "Erro: " + this.statusText;
+//                    }
+//                    if (this.readyState === 3) {
+//                        document.getElementById("result").innerHTML = "Aguarde...";
+//                    }
+//                };
+//                http.open("GET", URL);
+//                http.setRequestHeader("Authorization", "ehaiuahdfu32ioqpeyrq");
+//                http.send();
+//            }
+//            function parseJson(jsonData) {
+//                var obj = JSON.parse(jsonData);
+//                document.getElementById("result").innerHTML = "" + obj;
+//                console.log(obj);
+//            }
+//        
+//            
+//            function getCategoria() {
+//                var http = new XMLHttpRequest();
+//                http.onreadystatechange = function ()
+//                {
+//                    if (this.readyState === 4 && this.status === 200) {
+//                        document.getElementById("result").innerHTML = "Ok.";
+//                        console.log(this.responseText);
+//                        parseJson(this.responseText);
+//                    }
+//                    if (this.readyState === 4 && this.status !== 200) {
+//                        document.getElementById("result").innerHTML = "Erro: " + this.statusText;
+//                    }
+//                    if (this.readyState === 3) {
+//                        document.getElementById("result").innerHTML = "Aguarde...";
+//                    }
+//                };
+//                http.open("GET", URL);
+//                http.setRequestHeader("Authorization", "ehaiuahdfu32ioqpeyrq");
+//                http.send();
+//            }
+//            function parseJson(jsonData) {
+//                var obj = JSON.parse(jsonData);
+//                document.getElementById("result").innerHTML = "" + obj;
+//                console.log(obj);
+//            }
+            
+            function getPedido() {
+                var http = new XMLHttpRequest();
+                http.onreadystatechange = function ()
+                {
+                    if (this.readyState === 4 && this.status === 200) {
+                        document.getElementById("result").innerHTML = "Ok.";
+                        console.log(this.responseText);
+                        parseJson(this.responseText);
+                    }
+                    if (this.readyState === 4 && this.status !== 200) {
+                        document.getElementById("result").innerHTML = "Erro: " + this.statusText;
+                    }
+                    if (this.readyState === 3) {
+                        document.getElementById("result").innerHTML = "Aguarde...";
+                    }
+                };
+                http.open("GET", URL);
+                http.setRequestHeader("Authorization", "ehaiuahdfu32ioqpeyrq");
+                http.send();
+            }
+            function parseJson(jsonData) {
+                var obj = JSON.parse(jsonData);
+                document.getElementById("result").innerHTML = "" + obj;
+                console.log(obj);
+            }
+        </script> 
+    </head>
+    <body onload="getPedido(this)">
+        <div>TODO write content</div>
+        <div id="result"></div>
+    </body>
+</html>

@@ -43,21 +43,6 @@ public class RegistrarProdutoServlet extends HttpServlet {
         int cmarca = produtoS.getJsonNumber("cmarca").intValue();
         String produto = produtoS.getJsonString("produto").getString();
         String descProduto = produtoS.getJsonString("descProduto").getString();
-
-//        ObjectMapper mapper = new ObjectMapper();
-//        ProdutoDTO produt = mapper.readValue(content, ProdutoDTO.class);
-//
-//        // Array de strings a partir do conteudo recebido
-//        String imagemB64[] = produt.getUpload().split(",");
-//
-//        // Converte a imagem em String base64 para byte[]
-//        byte[] image = Base64.getDecoder().decode(imagemB64[1]);
-//
-////        File file = new File("c:\\temp\\teste.jpg"); -- Essa do prof
-//        File file = new File("C:\\foto.jpg");
-//        FileOutputStream fis = new FileOutputStream(file);
-//        fis.write(image);
-//        fis.close();
         String fotoProduto = produtoS.getJsonString("fotoProduto").getString();
         double precoProduto = produtoS.getJsonNumber("precoProduto").doubleValue();
         double promocao = produtoS.getJsonNumber("promocao").doubleValue();

@@ -53,7 +53,7 @@ public class MarcaDAO {
         }
     }
 
-    public Marca deletarPedido(int cmarca) throws Exception {
+    public Marca deletarMarca(int cmarca) throws Exception {
 
         try {
             Marca marc = new Marca();
@@ -87,22 +87,24 @@ public class MarcaDAO {
     }
 
     public List<Marca> findAll() throws Exception {
-        List<Marca> lista = new ArrayList();
-        Marca marca = new Marca();
-
+        List<Marca> lista = new ArrayList<>();
+        Marca marca;
+        String SQL = "SELECT MARCA.CMARCA, MARCA.MARCA"
+                + " FROM MARCA";
         try {
-            String SQL = "SELECT MARCA.CMARCA, MARCA.MARCA"
-                    + " FROM MARCA";
-
             PreparedStatement p = connection.prepareStatement(SQL);
             ResultSet rs = p.executeQuery();
+            while (rs.next()) {
+                marca = new Marca();
+                marca.setCmarca(rs.getInt("cmarca"));
+                marca.setMarca(rs.getString("marca"));
 
-            marca.setCmarca(rs.getInt("cproduto"));
-            marca.setMarca(rs.getString("produto"));
-
-            lista.add(marca);
+                lista.add(marca);
+            }
+            rs.close();
+            p.close();
         } catch (SQLException ex) {
-            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MarcaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lista;
     }

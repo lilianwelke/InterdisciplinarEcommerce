@@ -132,8 +132,8 @@ public class ProdutoDAO {
             String SQL = "SELECT PRODUTO.CPRODUTO, CATEGORIA.CCATEGORIA, MARCA.CMARCA, PRODUTO.PRODUTO, PRODUTO.DESCPRODUTO, PRODUTO.FOTOPRODUTO, "
                     + " PRODUTO.PRECOPRODUTO, PRODUTO.PROMOCAO, PRODUTO.QTDEESTOQUE, CATEGORIA.CATEGORIA, MARCA.MARCA"
                     + " FROM PRODUTO"
-                    + " INNER JOIN CATEGORIA ON (PRODUTO.CPRODUTO = CATEGORIA.CPRODUTO)"
-                    + " INNER JOIN MARCA ON (MARCA.CPRODUTO = MARCA.CPRODUTO)";
+                    + " INNER JOIN CATEGORIA ON (PRODUTO.CCATEGORIA = CATEGORIA.CCATEGORIA)"
+                    + " INNER JOIN MARCA ON (MARCA.CMARCA = MARCA.CMARCA)";
             PreparedStatement p = connection.prepareStatement(SQL);
             ResultSet rs = p.executeQuery();
             Categoria categ = new Categoria();
@@ -147,13 +147,13 @@ public class ProdutoDAO {
                 prod.setFotoProduto(rs.getString("fotoproduto"));
                 prod.setPrecoProduto(rs.getDouble("precoproduto"));
                 prod.setPromocao(rs.getDouble("promocao"));
-                prod.setQtdeEstoque(rs.getInt("qtdestoque"));
+                prod.setQtdeEstoque(rs.getInt("qtdeestoque"));
 
                 categ.setCcategoria(rs.getInt("ccategoria"));
                 categ.setCategoria(rs.getString("categoria"));
 
-                marc.setCmarca(rs.getInt("cproduto"));
-                marc.setMarca(rs.getString("produto"));
+                marc.setCmarca(rs.getInt("cmarca"));
+                marc.setMarca(rs.getString("marca"));
 
                 prod.setCcategoria(categ);
                 prod.setCmarca(marc);

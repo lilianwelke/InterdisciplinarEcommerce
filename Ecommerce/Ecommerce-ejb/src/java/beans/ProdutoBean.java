@@ -76,7 +76,7 @@ public class ProdutoBean implements ProdutoBeanRemote, ProdutoBeanLocal {
     public void deletarMarca(int cmarca) {
         try {
             MarcaDAO marcaDAO = new MarcaDAO();
-            Marca marca = marcaDAO.deletarPedido(cmarca);
+            Marca marca = marcaDAO.deletarMarca(cmarca);
         } catch (Exception ex) {
             Logger.getLogger(ProdutoBean.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -198,7 +198,20 @@ public class ProdutoBean implements ProdutoBeanRemote, ProdutoBeanLocal {
         } catch (Exception ex) {
             Logger.getLogger(ProdutoBean.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         return marc;
+    }
+
+    public List<Produto> getProduto() {
+        ArrayList<Produto> prod = null;
+        try {
+            ProdutoDAO produtoDAO = new ProdutoDAO();
+            prod = (ArrayList<Produto>) produtoDAO.findAll();
+        } catch (Exception ex) {
+            Logger.getLogger(ProdutoBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return prod;
     }
 
     public void totalEstoque(int cproduto, int citempedido, int qtdeproduto, int qtdeestoque) {

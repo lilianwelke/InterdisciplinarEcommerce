@@ -1,8 +1,15 @@
 package model;
 
-public class Categoria {
+import java.io.Serializable;
+
+public class Categoria implements Serializable {
+
     private int ccategoria;
     private String categoria;
+
+    public String toString() {
+        return "\"" + this.categoria + "\"";
+    }
 
     public int getCcategoria() {
         return ccategoria;

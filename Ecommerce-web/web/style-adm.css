@@ -1,0 +1,216 @@
+html {
+    font: 16px Hind, Arial, sans-serif;		
+}
+.container {
+    width:100%;
+    min-width:68em;	
+    margin:0 auto; 
+    background-color:#FFF;
+    height: 0;
+}
+header { 
+	position: fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:7em;	
+	background-color:#FFF;
+	z-index: 99;
+}
+nav {
+	position:fixed;
+	top:7em;
+	width:100%;
+	z-index: 99;
+}
+footer { 
+	position: relative;
+    bottom: 84px;
+    width: 100%;
+    background-color: #EEE;
+    z-index: 10;
+    height: 21em;
+}
+.head .logo {
+	height: 3.5em;
+    width: auto;
+    position: relative;
+    /*left: 6em;*/
+    top: .75em;
+    display: block;
+    margin: 0 auto;
+}
+.div-nome { 
+    display: block;
+    margin: 0 auto;
+}
+.head .nome {   
+    font-weight: 500;
+    font-family: 'Amatic SC', cursive;
+    font-size: 2.5em;
+    margin: 0;
+    color: #363f46;
+	text-align: center;
+}
+.menul { 
+    background-color:#EEE;
+	margin:0;
+    padding:0 0 0 5em;    
+    text-align:center;
+}
+.menul li {	
+    display: inline-block;
+    margin: .63em 3.15em .45em 3.15em;
+    padding: 0;    
+    font-size: .9em;
+    position: relative;
+    left: -1.99em;
+    transition: .075s;
+    cursor: pointer;
+    border-bottom: .2em solid transparent;
+    color:#363f46;
+}
+a {
+	text-decoration: none;
+	color: #333;
+}
+.menul li:hover {	
+    border-bottom: .15em solid #008a9c;
+}
+.form-pesquisa {
+	width: 30em;
+	position: relative;
+    left: 35em;
+    top: -2.5em;
+}
+.pesquisa {
+    display:none;
+	padding: .55em;
+    width: 30em;
+    border-radius: .25em;
+	font-family:Hind, Arial, sans-serif;
+	background-color:#EEE;
+	transition: .8s;
+     border: .1em solid transparent;
+}
+.pesquisa:focus {
+	background-color:#FFF;
+	outline:none;
+    border: .1em solid #008a9c;
+}
+.lupa { 
+    display:none;
+	position:relative;
+	top:-4.75em;
+	left:63em;
+	color:#363f46;
+	cursor: pointer;
+}
+.lupa:hover {
+	color:#008a9c;
+}
+.carrinho { 
+    display:none;
+	position:relative;
+	top:-4.5em;
+	left:75em;
+	color:#363f46;
+	cursor: pointer;
+}
+.carrinho:hover { 
+	color:#008a9c;
+}
+.conteudo { 
+    background: #EEE;
+    position: relative;
+    top: -33em;
+    left: 8em;
+    width: 70%;
+    height: 14em;
+    opacity: .75;
+}
+.contem-gerencie { 
+	width:100%;
+	position: relative;
+    top: 9em;	
+}
+.gerencie { 
+	width:100%;
+	opacity:.5;
+}
+.titulo-adm {
+	position: absolute;
+    top: 2em;
+    left: 3em;
+    color: #363f46;
+    font-size: 4em;
+    font-weight: 500;
+}
+.subTitulo-adm {
+	position: absolute;
+    top: 16em;
+    left: 26em;
+    color: #363f46;
+    font-size: 1em;	
+}
+.clear { 
+	clear:both;
+}
+.icones-sociais { 
+    position: relative;
+    top:2em;
+    left:35.5em;
+}
+.logo-grande {
+	height: 10em;
+    width: auto;
+    position:relative;
+	top:4em;
+	display:block;
+	margin:0 auto;
+}
+.icones-sociais i {
+    color:#363f46;
+    margin:0 .5em;
+    padding: .0725em .15em;
+}
+.youtube:hover i { 
+    color: #bb0000;
+    cursor: pointer;
+}
+.twitter:hover i { 
+    color: #00aced;
+    cursor: pointer;
+}
+.face i { 
+    border-radius:.1em;  
+    padding: .19em .19em 0 .45em;    
+}
+.face:hover i { 
+    color:#EEE;
+    background: #3b5998;
+    cursor: pointer;
+}
+.insta i { 
+    padding: .0725em .15em;    
+}
+.insta:hover i { 
+    border-radius:.15em;    
+    color:#EEE;
+    background: #f09433; 
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+    cursor: pointer;
+}
+footer p { 
+    text-align: center;
+    color: #363f46;
+    position: relative;
+    top: 5em;
+    padding: 0;
+    margin: 0;
+    font-size: .9em;
+    line-height: 1.25em;
+}

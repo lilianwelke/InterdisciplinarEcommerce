@@ -1,6 +1,8 @@
 package model;
 
-public class Produto {
+import java.io.Serializable;
+
+public class Produto implements Serializable {
 
     private int cproduto;
     private Categoria ccategoria;
@@ -11,6 +13,10 @@ public class Produto {
     private double precoProduto;
     private double promocao;
     private int qtdeEstoque;
+
+    public String toString() {
+        return "\"" + this.cproduto + this.produto + this.descProduto + this.fotoProduto + this.precoProduto + this.promocao + this.qtdeEstoque + "\"";
+    }
 
     public int getCproduto() {
         return cproduto;

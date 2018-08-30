@@ -144,4 +144,16 @@ public class PedidoBean implements PedidoBeanRemote, PedidoBeanLocal {
 
     }
 
+    public List<Pedido> getPedido() {
+        ArrayList<Pedido> ped = null;
+        try {
+            PedidoDAO pedidoDAO = new PedidoDAO();
+            ped = (ArrayList<Pedido>) pedidoDAO.findAll();
+        } catch (Exception ex) {
+            Logger.getLogger(ProdutoBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return ped;
+    }
+
 }

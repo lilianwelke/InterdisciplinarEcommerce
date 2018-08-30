@@ -86,19 +86,25 @@ public class CategoriaDAO {
 
     public List<Categoria> findAll() throws Exception {
         List<Categoria> lista = new ArrayList();
-        Categoria categoria = new Categoria();
-
+        Categoria categoria;
+        String SQL = "SELECT CATEGORIA.CCATEGORIA, CATEGORIA.CATEGORIA"
+                + " FROM CATEGORIA";
         try {
-            String SQL = "SELECT CATEGORIA.CCATEGORIA, CATEGORIA.CATEGORIA"
-                    + " FROM CATEGORIA";
-
             PreparedStatement p = connection.prepareStatement(SQL);
             ResultSet rs = p.executeQuery();
 
-            categoria.setCcategoria(rs.getInt("ccategoria"));
-            categoria.setCategoria(rs.getString("categoria"));
+            while (rs.next()) {
+                categoria = new Categoria();
+                categoria.setCcategoria(rs.getInt("ccategoria"));
+                categoria.setCategoria(rs.getString("categoria"));
 
-            lista.add(categoria);
+                lista.add(categoria);
+
+            }
+
+            rs.close();
+            p.close();
+
         } catch (SQLException ex) {
             Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }

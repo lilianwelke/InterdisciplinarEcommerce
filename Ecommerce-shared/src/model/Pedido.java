@@ -1,8 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Pedido {
+public class Pedido implements Serializable {
+
     private int cpedido;
     private Cliente ccliente;
     private Date dataCompra;
@@ -10,6 +12,10 @@ public class Pedido {
     private String pagamento;
     private String concluida;
     private double frete;
+
+    public String toString() {
+        return "\"" + this.cpedido + this.ccliente + this.dataCompra + this.totalCompra + this.pagamento + this.concluida + this.frete + "\"";
+    }
 
     public int getCpedido() {
         return cpedido;
