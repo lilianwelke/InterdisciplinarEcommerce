@@ -15,7 +15,9 @@ public class Produto implements Serializable {
     private int qtdeEstoque;
 
     public String toString() {
-        return "\"" + this.cproduto + this.produto + this.descProduto + this.fotoProduto + this.precoProduto + this.promocao + this.qtdeEstoque + "\"";
+        return "{\"img\": \"" + this.fotoProduto + "\"}";
+//                this.cproduto + this.ccategoria + this.cmarca +
+//                this.produto + this.descProduto + this.fotoProduto + this.precoProduto + this.promocao + this.qtdeEstoque + "\"";
     }
 
     public int getCproduto() {

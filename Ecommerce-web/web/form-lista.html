@@ -5,89 +5,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript">
-            var URL = "http://localhost:8080/ecommerce-web/pedido";
-//            function getMarca() {
-//                var http = new XMLHttpRequest();
-//                http.onreadystatechange = function ()
-//                {
-//                    if (this.readyState === 4 && this.status === 200) {
-//                        document.getElementById("result").innerHTML = "Ok.";
-//                        console.log(this.responseText);
-//                        parseJson(this.responseText);
-//                    }
-//                    if (this.readyState === 4 && this.status !== 200) {
-//                        document.getElementById("result").innerHTML = "Erro: " + this.statusText;
-//                    }
-//                    if (this.readyState === 3) {
-//                        document.getElementById("result").innerHTML = "Aguarde...";
-//                    }
-//                };
-//                http.open("GET", URL);
-//                http.setRequestHeader("Authorization", "ehaiuahdfu32ioqpeyrq");
-//                http.send();
-//            }
+            var URL = "http://localhost:8080/ecommerce-web/listarprodutos";
+            function init() {
+                fazerRequisicao(listarProdutos);
+                fazerRequisicao(listarCategorias);
+                fazerRequisicao(listarMarcas);
+            }
 
-//            function getProduto() {
-//                var http = new XMLHttpRequest();
-//                http.onreadystatechange = function ()
-//                {
-//                    if (this.readyState === 4 && this.status === 200) {
-//                        document.getElementById("result").innerHTML = "Ok.";
-//                        console.log(this.responseText);
-//                        parseJson(this.responseText);
-//                    }
-//                    if (this.readyState === 4 && this.status !== 200) {
-//                        document.getElementById("result").innerHTML = "Erro: " + this.statusText;
-//                    }
-//                    if (this.readyState === 3) {
-//                        document.getElementById("result").innerHTML = "Aguarde...";
-//                    }
-//                };
-//                http.open("GET", URL);
-//                http.setRequestHeader("Authorization", "ehaiuahdfu32ioqpeyrq");
-//                http.send();
-//            }
-//            function parseJson(jsonData) {
-//                var obj = JSON.parse(jsonData);
-//                document.getElementById("result").innerHTML = "" + obj;
-//                console.log(obj);
-//            }
-//        
-//            
-//            function getCategoria() {
-//                var http = new XMLHttpRequest();
-//                http.onreadystatechange = function ()
-//                {
-//                    if (this.readyState === 4 && this.status === 200) {
-//                        document.getElementById("result").innerHTML = "Ok.";
-//                        console.log(this.responseText);
-//                        parseJson(this.responseText);
-//                    }
-//                    if (this.readyState === 4 && this.status !== 200) {
-//                        document.getElementById("result").innerHTML = "Erro: " + this.statusText;
-//                    }
-//                    if (this.readyState === 3) {
-//                        document.getElementById("result").innerHTML = "Aguarde...";
-//                    }
-//                };
-//                http.open("GET", URL);
-//                http.setRequestHeader("Authorization", "ehaiuahdfu32ioqpeyrq");
-//                http.send();
-//            }
-//            function parseJson(jsonData) {
-//                var obj = JSON.parse(jsonData);
-//                document.getElementById("result").innerHTML = "" + obj;
-//                console.log(obj);
-//            }
-            
-            function getPedido() {
+            function fazerRequisicao(callback) {
                 var http = new XMLHttpRequest();
                 http.onreadystatechange = function ()
                 {
                     if (this.readyState === 4 && this.status === 200) {
                         document.getElementById("result").innerHTML = "Ok.";
                         console.log(this.responseText);
-                        parseJson(this.responseText);
+                        callback(this.responseText);
                     }
                     if (this.readyState === 4 && this.status !== 200) {
                         document.getElementById("result").innerHTML = "Erro: " + this.statusText;
@@ -100,14 +32,20 @@
                 http.setRequestHeader("Authorization", "ehaiuahdfu32ioqpeyrq");
                 http.send();
             }
-            function parseJson(jsonData) {
+            function listarProdutos(jsonData) {
                 var obj = JSON.parse(jsonData);
-                document.getElementById("result").innerHTML = "" + obj;
                 console.log(obj);
+                for (var i = 0; i < obj.length; i++)
+                {
+                    var img = document.createElement('img');
+                    img.src = obj[i].img;
+                    document.body.appendChild(img);
+                }
             }
+
         </script> 
     </head>
-    <body onload="getPedido(this)">
+    <body onload="init()">
         <div>TODO write content</div>
         <div id="result"></div>
     </body>

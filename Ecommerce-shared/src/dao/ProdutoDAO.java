@@ -133,7 +133,7 @@ public class ProdutoDAO {
                     + " PRODUTO.PRECOPRODUTO, PRODUTO.PROMOCAO, PRODUTO.QTDEESTOQUE, CATEGORIA.CATEGORIA, MARCA.MARCA"
                     + " FROM PRODUTO"
                     + " INNER JOIN CATEGORIA ON (PRODUTO.CCATEGORIA = CATEGORIA.CCATEGORIA)"
-                    + " INNER JOIN MARCA ON (MARCA.CMARCA = MARCA.CMARCA)";
+                    + " INNER JOIN MARCA ON (PRODUTO.CMARCA = MARCA.CMARCA)";
             PreparedStatement p = connection.prepareStatement(SQL);
             ResultSet rs = p.executeQuery();
             Categoria categ = new Categoria();

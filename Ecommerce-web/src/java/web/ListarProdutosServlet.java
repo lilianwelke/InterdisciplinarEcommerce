@@ -32,7 +32,7 @@ public class ListarProdutosServlet extends HttpServlet {
 
         String retorno = null;
         try {
-            retorno = bean.getCategoria().toString();
+            retorno = bean.getProduto().toString();
 //bean.getMarca().toString() + bean.getProduto().toString();
         } catch (Exception ex) {
             Logger.getLogger(RegistrarMarcaServlet.class.getName()).log(Level.SEVERE, null, ex);
