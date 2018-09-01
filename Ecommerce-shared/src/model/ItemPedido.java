@@ -10,6 +10,12 @@ public class ItemPedido implements Serializable {
     private double qtdeProduto;
     private double precoProduto;
 
+    public String toString() {
+        return "{\"citemPedido\": \"" + this.citemPedido + "\", \"cpedido\": \"" + this.cpedido + "\", "
+                + "\"cproduto\": \"" + this.cproduto + "\", \"qtdeProduto\": \"" + this.qtdeProduto + "\", "
+                + "\"precoProduto\": \"" + this.precoProduto + "\"}";
+    }
+
     public int getCitemPedido() {
         return citemPedido;
     }

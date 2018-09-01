@@ -6,6 +6,8 @@
             <file>file:/C:/projeto/Ecommerce-shared/src/model/Produto.java</file>
             <file>file:/C:/projeto/Ecommerce-shared/src/dao/ProdutoDAO.java</file>
             <file>file:/C:/projeto/Ecommerce-shared/src/model/Categoria.java</file>
+            <file>file:/C:/projeto/Ecommerce-shared/src/model/Cliente.java</file>
+            <file>file:/C:/projeto/Ecommerce-shared/src/dao/CategoriaDAO.java</file>
         </group>
     </open-files>
 </project-private>

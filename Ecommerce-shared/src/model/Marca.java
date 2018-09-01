@@ -8,7 +8,7 @@ public class Marca implements Serializable {
     private String marca;
 
     public String toString() {
-        return "\"" + this.marca + "\"";
+        return "{\"cmarca\": \"" + this.cmarca + "\", \"marca\": \"" + this.marca + "\"}";
     }
 
     public int getCmarca() {

@@ -8,7 +8,7 @@ public class Categoria implements Serializable {
     private String categoria;
 
     public String toString() {
-        return "\"" + this.categoria + "\"";
+        return "{\"ccategoria\": \"" + this.ccategoria + "\", \"categoria\": \"" + this.categoria + "\"}";
     }
 
     public int getCcategoria() {

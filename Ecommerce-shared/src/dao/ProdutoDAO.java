@@ -126,7 +126,7 @@ public class ProdutoDAO {
 
     public List<Produto> findAll() throws SQLException {
         List<Produto> lista = new ArrayList<>();
-        Produto prod = new Produto();
+        Produto prod;
 
         try {
             String SQL = "SELECT PRODUTO.CPRODUTO, CATEGORIA.CCATEGORIA, MARCA.CMARCA, PRODUTO.PRODUTO, PRODUTO.DESCPRODUTO, PRODUTO.FOTOPRODUTO, "
@@ -140,7 +140,7 @@ public class ProdutoDAO {
             Marca marc = new Marca();
 
             while (rs.next()) {
-
+                prod = new Produto();
                 prod.setCproduto(rs.getInt("cproduto"));
                 prod.setProduto(rs.getString("produto"));
                 prod.setDescProduto(rs.getString("descproduto"));

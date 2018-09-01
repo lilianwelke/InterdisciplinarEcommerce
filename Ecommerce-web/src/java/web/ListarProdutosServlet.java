@@ -6,6 +6,7 @@
 package web;
 
 import beans.ProdutoBeanRemote;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -30,14 +31,18 @@ public class ListarProdutosServlet extends HttpServlet {
         resp.setContentType("aplicarion/json");
         PrintWriter saida = resp.getWriter();
 
-        String retorno = null;
+        String retornoProduto = "", retornoCategoria = "", retornoMarca = "";
         try {
-            retorno = bean.getProduto().toString();
+
+            ObjectMapper mapper = new ObjectMapper();
+            retornoProduto = mapper.writeValueAsString(bean.getProduto());
+            retornoCategoria = mapper.writeValueAsString(bean.getCategoria());
+            retornoMarca = mapper.writeValueAsString(bean.getMarca());
 //bean.getMarca().toString() + bean.getProduto().toString();
         } catch (Exception ex) {
             Logger.getLogger(RegistrarMarcaServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        saida.write(retorno);
+        saida.write(retornoProduto + "#GL#" + retornoCategoria + "#GL#" + retornoMarca);
     }
 }

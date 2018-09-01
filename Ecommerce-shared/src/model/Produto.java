@@ -14,12 +14,12 @@ public class Produto implements Serializable {
     private double promocao;
     private int qtdeEstoque;
 
-    public String toString() {
-        return "{\"img\": \"" + this.fotoProduto + "\"}";
-//                this.cproduto + this.ccategoria + this.cmarca +
-//                this.produto + this.descProduto + this.fotoProduto + this.precoProduto + this.promocao + this.qtdeEstoque + "\"";
-    }
-
+//    public String toString() {
+//        return "{\"cproduto\": \"" + this.cproduto + "\", \"ccategoria\": \"" + this.ccategoria + "\", "
+//                + "\"cmarca\": \"" + this.cmarca + "\", \"descProduto\": \"" + this.descProduto + "\", "
+//                + "\"fotoProduto\": \"" + this.fotoProduto + "\", \"precoProduto\": \"" + this.precoProduto + "\", "
+//                + "\"promocao\": \"" + this.promocao + "\", \"qtdeEstoque\": \"" + this.qtdeEstoque + "\"}";
+//    }
     public int getCproduto() {
         return cproduto;
     }

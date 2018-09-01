@@ -15,6 +15,13 @@ public class Cliente implements Serializable {
 
     private String senha;
 
+    public String toString() {
+        return "{\"ccliente\": \"" + this.ccliente + "\", \"cliente\": \"" + this.cliente + "\", "
+                + "\"cpf\": \"" + this.cpf + "\", \"endereco\": \"" + this.endereco + "\", "
+                + "\"cidade\": \"" + this.cidade + "\", \"cep\": \"" + this.cep + "\", "
+                + "\"uf\": \"" + this.uf + "\", \"telefone\": \"" + this.telefone + "\", \"senha\": \"" + this.senha + "\"}";
+    }
+
     public int getCcliente() {
         return ccliente;
     }

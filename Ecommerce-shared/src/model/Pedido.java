@@ -14,7 +14,10 @@ public class Pedido implements Serializable {
     private double frete;
 
     public String toString() {
-        return "\"" + this.cpedido + this.ccliente + this.dataCompra + this.totalCompra + this.pagamento + this.concluida + this.frete + "\"";
+        return "{\"cpedido\": \"" + this.cpedido + "\", \"ccliente\": \"" + this.ccliente + "\", "
+                + "\"dataCompra\": \"" + this.dataCompra + "\", \"totalCompra\": \"" + this.totalCompra + "\", "
+                + "\"pagamento\": \"" + this.pagamento + "\", \"concluida\": \"" + this.concluida + "\", "
+                + "\"frete\": \"" + this.frete + "\"}";
     }
 
     public int getCpedido() {
