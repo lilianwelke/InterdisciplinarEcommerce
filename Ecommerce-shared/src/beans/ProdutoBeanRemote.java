@@ -46,4 +46,6 @@ public interface ProdutoBeanRemote {
 
     public List<Produto> getProduto();
 
+    public int getProdutoById(int codigo);
+
 }

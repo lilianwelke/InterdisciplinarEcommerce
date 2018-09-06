@@ -32,6 +32,10 @@
         <servlet-name>PedidoServlet</servlet-name>
         <servlet-class>web.PedidoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListarDetalhesServlet</servlet-name>
+        <servlet-class>web.ListarDetalhesServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistrarCategoriaServlet</servlet-name>
         <url-pattern>/registrarcategoria</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>PedidoServlet</servlet-name>
         <url-pattern>/pedido</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarDetalhesServlet</servlet-name>
+        <url-pattern>/listardetalhes</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

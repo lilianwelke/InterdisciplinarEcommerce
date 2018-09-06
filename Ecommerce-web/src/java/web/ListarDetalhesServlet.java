@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package web;
 
 import beans.ProdutoBeanRemote;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.Integer.parseInt;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
@@ -21,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Gabrielli Vianna
  */
-public class ListarProdutosServlet extends HttpServlet {
+public class ListarDetalhesServlet extends HttpServlet {
 
     @EJB
     private ProdutoBeanRemote bean;
@@ -31,20 +27,19 @@ public class ListarProdutosServlet extends HttpServlet {
         resp.setContentType("aplicarion/json");
         PrintWriter saida = resp.getWriter();
 
-        String retornoProduto = "", retornoCategoria = "", retornoMarca = "";
+        int cproduto = parseInt(req.getParameter("cproduto"));
+
+        String retornoDetalhes = "";
         try {
 
             ObjectMapper mapper = new ObjectMapper();
-            retornoProduto = mapper.writeValueAsString(bean.getProduto());
-            retornoCategoria = mapper.writeValueAsString(bean.getCategoria());
-            retornoMarca = mapper.writeValueAsString(bean.getMarca());
-            //search
-            //produto - categoria - marca
-//bean.getMarca().toString() + bean.getProduto().toString();
+            retornoDetalhes = mapper.writeValueAsString(bean.getProdutoById(cproduto));
+
         } catch (Exception ex) {
             Logger.getLogger(ListarProdutosServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        saida.write(retornoProduto + "#GL#" + retornoCategoria + "#GL#" + retornoMarca);
+        saida.write(retornoDetalhes);
     }
+
 }

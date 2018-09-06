@@ -85,21 +85,21 @@ public class ProdutoDAO {
     }
 
     public Produto findById(int cproduto) throws Exception {
-        Produto prod = new Produto();
+        Produto prod = null;
 
         try {
             String SQL = "SELECT PRODUTO.CPRODUTO, CATEGORIA.CCATEGORIA, MARCA.CMARCA, PRODUTO.PRODUTO, PRODUTO.DESCPRODUTO, PRODUTO.FOTOPRODUTO, "
                     + " PRODUTO.PRECOPRODUTO, PRODUTO.PROMOCAO, PRODUTO.QTDEESTOQUE, CATEGORIA.CATEGORIA, MARCA.MARCA"
                     + " FROM PRODUTO"
-                    + " INNER JOIN CATEGORIA ON (PRODUTO.CPRODUTO = CATEGORIA.CPRODUTO)"
-                    + " INNER JOIN MARCA ON (MARCA.CPRODUTO = MARCA.CPRODUTO)";
+                    + " INNER JOIN CATEGORIA ON (PRODUTO.CCATEGORIA = CATEGORIA.CCATEGORIA)"
+                    + " INNER JOIN MARCA ON (MARCA.CMARCA = PRODUTO.CMARCA)";
             PreparedStatement p = connection.prepareStatement(SQL);
             ResultSet rs = p.executeQuery();
             Categoria categ = new Categoria();
             Marca marc = new Marca();
 
             while (rs.next()) {
-
+                prod = new Produto();
                 prod.setCproduto(rs.getInt("cproduto"));
                 prod.setProduto(rs.getString("produto"));
                 prod.setDescProduto(rs.getString("descproduto"));
