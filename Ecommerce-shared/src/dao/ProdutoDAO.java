@@ -60,7 +60,7 @@ public class ProdutoDAO {
             p.setString(5, fotoProduto);
             p.setDouble(6, precoProduto);
             p.setDouble(7, promocao);
-            p.setInt(8, qtdeEstoque);;
+            p.setInt(8, qtdeEstoque);
             p.setInt(9, cproduto);
             p.execute();
             p.close();
@@ -92,21 +92,25 @@ public class ProdutoDAO {
                     + " PRODUTO.PRECOPRODUTO, PRODUTO.PROMOCAO, PRODUTO.QTDEESTOQUE, CATEGORIA.CATEGORIA, MARCA.MARCA"
                     + " FROM PRODUTO"
                     + " INNER JOIN CATEGORIA ON (PRODUTO.CCATEGORIA = CATEGORIA.CCATEGORIA)"
-                    + " INNER JOIN MARCA ON (MARCA.CMARCA = PRODUTO.CMARCA)";
+                    + " INNER JOIN MARCA ON (MARCA.CMARCA = PRODUTO.CMARCA)"
+                    + " WHERE PRODUTO.CPRODUTO = ?";
             PreparedStatement p = connection.prepareStatement(SQL);
+            p.setInt(1, cproduto);
             ResultSet rs = p.executeQuery();
+
             Categoria categ = new Categoria();
             Marca marc = new Marca();
+            prod = new Produto();
 
-            while (rs.next()) {
-                prod = new Produto();
+            if (rs.next()) {
+
                 prod.setCproduto(rs.getInt("cproduto"));
                 prod.setProduto(rs.getString("produto"));
                 prod.setDescProduto(rs.getString("descproduto"));
                 prod.setFotoProduto(rs.getString("fotoproduto"));
                 prod.setPrecoProduto(rs.getDouble("precoproduto"));
                 prod.setPromocao(rs.getDouble("promocao"));
-                prod.setQtdeEstoque(rs.getInt("qtdestoque"));
+                prod.setQtdeEstoque(rs.getInt("qtdeestoque"));
 
                 categ.setCcategoria(rs.getInt("ccategoria"));
                 categ.setCategoria(rs.getString("categoria"));
@@ -117,6 +121,8 @@ public class ProdutoDAO {
                 prod.setCcategoria(categ);
                 prod.setCmarca(marc);
             }
+            rs.close();
+            p.close();
         } catch (SQLException ex) {
             Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }

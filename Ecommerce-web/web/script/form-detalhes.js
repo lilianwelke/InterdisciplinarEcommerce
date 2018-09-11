@@ -1,10 +1,9 @@
-var URL = "http://localhost:8080/ecommerce-web/listardetalhes";
+//var URL = "http://localhost:8080/ecommerce-web/listardetalhes";
 function init() {
-    console.log("poassou");
-    fazerRequisicao(listarDetalhes);    
+    fazerRequisicao("GET", "http://localhost:8080/ecommerce-web/listardetalhes", false, listarDetalhes);    
 }
 
-function fazerRequisicao(callback) {
+function fazerRequisicao(metodo, url, assincrona, callback) {
     var http = new XMLHttpRequest();
     http.onreadystatechange = function ()
     {
@@ -19,16 +18,24 @@ function fazerRequisicao(callback) {
             console.log("Aguarde...");
         }
     };
-    http.open("GET", URL  + "?cproduto=" + cproduto);
+    
+    var cproduto = obterParametro('cproduto');
+    http.open(metodo, url  + "?cproduto=" + cproduto);
     http.setRequestHeader("Authorization", "ehaiuahdfu32ioqpeyrq");
     http.send();
 }
+
+function obterParametro(nomeParametro) {
+    var url = new URL(window.location.href);
+    return url.searchParams.get(nomeParametro);
+}
+
 function listarDetalhes(jsonData) {    
     var objDeta = JSON.parse(jsonData);
 
     var dv, dvImg, img, dvDetalhes, hCinco, p1, p2, p3, p4, dvCarrinho, aCarrinho;
-    for (var i = 0; i < objDeta.length; i++)
-    {
+//    for (var i = 0; i < objDeta.length; i++)
+//    {
         dv = document.createElement('div'); 
         dv.setAttribute('class', 'produto-max');
         document.querySelector('section').appendChild(dv);
@@ -38,7 +45,7 @@ function listarDetalhes(jsonData) {
         dv.appendChild(dvImg);
         
         img = document.createElement('img');
-        img.src = objDeta[i]['fotoProduto'];
+        img.src = objDeta['fotoProduto'];
         img.setAttribute('class', 'foto-max');
         dvImg.appendChild(img);
         
@@ -47,37 +54,38 @@ function listarDetalhes(jsonData) {
         dv.appendChild(dvDetalhes);
         
         p1 = document.createElement('p');
-        p1.innerText = objDeta[i]['cmarca']['marca'];
+        p1.innerText = objDeta['cmarca']['marca'];
         dvDetalhes.appendChild(p1);
         
         hCinco = document.createElement('h2');
-        hCinco.innerText = objDeta[i]['produto'];
+        hCinco.innerText = objDeta['produto'];
         hCinco.setAttribute('class', 'hCinco-max');
         dvDetalhes.appendChild(hCinco);
         
         p2 = document.createElement('p');
-        p2.innerText = objDeta[i]['descProduto'];
+        p2.innerText = objDeta['descProduto'];
         dvDetalhes.appendChild(p2);
         
         p3 = document.createElement('p');
-        p3.innerText = 'R$ ' + objDeta[i]['precoProduto'].toFixed(2).replace('.', ',');
+        p3.innerText = 'R$ ' + objDeta['precoProduto'].toFixed(2).replace('.', ',');
         p3.setAttribute('class', 'preco-max');
         dvDetalhes.appendChild(p3);
         
         p4 = document.createElement('p');
-        p4.innerText = 'Disponível: '+objDeta[i]['qtdeEstoque'] +' unidades';
+        p4.innerText = 'Disponível: '+objDeta['qtdeEstoque'] +' unidades';
         p4.setAttribute('class', 'qtde-disp');
         dvDetalhes.appendChild(p4);
                 
         dvCarrinho = document.createElement('div');
         dvCarrinho.setAttribute('class', 'comprar-agora');
         dvDetalhes.appendChild(dvCarrinho);
+        dvCarrinho.innerText = 'COMPRAR AGORA';
         
-        aCarrinho = document.createElement('a');
-        aCarrinho.innerText = 'COMPRAR AGORA';
-        aCarrinho.setAttribute('href', '');
-        dvCarrinho.appendChild(aCarrinho);
-    }
+//        aCarrinho = document.createElement('a');
+//        aCarrinho.innerText = 'COMPRAR AGORA';
+//        aCarrinho.setAttribute('href', '');
+//        dvCarrinho.appendChild(aCarrinho);
+//    }
 }
 
 init();

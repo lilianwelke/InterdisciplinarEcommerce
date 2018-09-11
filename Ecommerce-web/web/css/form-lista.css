@@ -210,8 +210,10 @@ main {
     text-align: center;
     padding: 0.3em;
     border: .09em solid rgba(0,138,156,.75);	
-    font-size:1em;
+    font-size:.85em;
     cursor:pointer;
+    font-size:1em;
+    color:#363f46;
 }
 .detalhes a {
     font-size:.75em;
@@ -219,6 +221,7 @@ main {
 }
 .detalhes:hover { 
     background-color: rgba(0,138,156,.75);
+    color:rgba(254,254,254);
 }	
 .detalhes:hover a { 
     color:rgba(254,254,254);	

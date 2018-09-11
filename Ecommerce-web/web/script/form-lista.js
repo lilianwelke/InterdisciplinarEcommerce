@@ -62,11 +62,12 @@ function listarProdutos(jsonData) {
         dv.appendChild(dvDetalhes);
         dvDetalhes.setAttribute('id', objProd[i]['cproduto']);
         dvDetalhes.setAttribute('class', 'detalhes');
+        dvDetalhes.innerText = 'VER DETALHES';
 
-        aDetalhes = document.createElement('a');
-        aDetalhes.innerText = 'VER DETALHES';
-        aDetalhes.setAttribute('href', 'form-detalhes.html');
-        dvDetalhes.appendChild(aDetalhes);
+//        aDetalhes = document.createElement('a');
+//        aDetalhes.innerText = 'VER DETALHES';
+//        aDetalhes.setAttribute('href', 'form-detalhes.html');
+//        dvDetalhes.appendChild(aDetalhes);
 
         //como pegar o cproduto de outra pg
         document.querySelector('.detalhes').addEventListener('click', chamaDetalhes);

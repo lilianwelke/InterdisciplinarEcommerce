@@ -9,19 +9,19 @@ html {
     height: 0;
 }
 header { 
-	position: fixed;
-	top:0;
-	left:0;
-	width:100%;
-	height:7em;	
-	background-color:#fefefe;
-	z-index: 99;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:7em;	
+    background-color:#fefefe;
+    z-index: 99;
 }
 nav {
-	position:fixed;
-	top:7em;
-	width:100%;
-	z-index: 99;
+    position:fixed;
+    top:7em;
+    width:100%;
+    z-index: 99;
 }
 footer { 
     position: relative;
@@ -32,24 +32,24 @@ footer {
     height: 21em;
 }
 .div-logo { 
-	position: relative;
-	top: .75em;
+    position: relative;
+    top: .75em;
     margin: 0 auto;
-	height: 3.5em;
-	width: 3.462em;
-	left: 6em;
+    height: 3.5em;
+    width: 3.462em;
+    left: 6em;
 }
 .head .logo {	
-	position: relative;
-	top: .75em;
-	height: 3.5em;
-	width: auto;
-	left: 6em;
+    position: relative;
+    top: .75em;
+    height: 3.5em;
+    width: auto;
+    left: 6em;
 }
 .div-nome { 
     margin: 0 auto;
-	height: 3.188em;
-	width: 5em;
+    height: 3.188em;
+    width: 5em;
 }
 .head .nome { 
     display: inline-block;
@@ -64,7 +64,7 @@ footer {
 }
 .menul { 
     background-color:#EEE;
-	margin:0;
+    margin:0;
     padding:0 0 0 5em;    
     text-align:center;
 }
@@ -81,55 +81,55 @@ footer {
     color:#363f46;
 }
 a {
-	text-decoration: none;
-	color: #333;
+    text-decoration: none;
+    color: #333;
 }
 .menul li:hover {	
     border-bottom: .15em solid #008a9c;
 }
 .form-pesquisa {
-	width: 30em;
-	position: relative;
+    width: 30em;
+    position: relative;
     left: 35em;
     top: -2.5em;
 }
 .pesquisa {    
-	padding: .55em;
+    padding: .55em;
     width: 30em;
     border-radius: .25em;
-	font-family:Hind, Arial, sans-serif;
-	background-color:#EEE;
-	transition: .8s;
+    font-family:Hind, Arial, sans-serif;
+    background-color:#EEE;
+    transition: .8s;
     border: .1em solid transparent;
 }
 .pesquisa:focus {
-	background-color:#fefefe;
-	outline:none;
+    background-color:#fefefe;
+    outline:none;
     border: .1em solid #008a9c;
 }
 .lupa {     
-	position:relative;
-	top:-4.75em;
-	left:63em;
-	color:#363f46;
-	cursor: pointer;
+    position:relative;
+    top:-4.75em;
+    left:63em;
+    color:#363f46;
+    cursor: pointer;
 }
 .lupa:hover {
-	color:#008a9c;
+    color:#008a9c;
 }
 .carrinho {    
-	position:relative;
-	top:-4.5em;
-	left:75em;
-	color:#363f46;
-	cursor: pointer;
+    position:relative;
+    top:-4.5em;
+    left:75em;
+    color:#363f46;
+    cursor: pointer;
 }
 .carrinho:hover { 
-	color:#008a9c;
+    color:#008a9c;
 }
 main {	
-	background:linear-gradient(to bottom, rgba(236,248,248,0.3), rgba(0,138,156,0.3)); 
-	padding-bottom: 25em;
+    background:linear-gradient(to bottom, rgba(236,248,248,0.3), rgba(0,138,156,0.3)); 
+    padding-bottom: 25em;
 }
 .conteudo { 
     position: absolute;
@@ -139,39 +139,39 @@ main {
     height: 13em;
 }
 .conteudo h2, h3, p { 
-	text-shadow:  1px 1px #fefefe;
+    text-shadow:  1px 1px #fefefe;
 }
 .produto-max { 
-	background: rgba(254,254,254,.75);
+    background: rgba(254,254,254,.75);
     position: relative;
     top: 14em;
     left: 11em;
     width: 76%;
 }
 .div-produtoMax { 
-	width: 50%;
+    width: 50%;
     margin: 2em;
-	display: inline-block;
+    display: inline-block;
 }
 .foto-max {
-	width: 100%;	
+    width: 100%;	
 }
 .produto-max h2, p { 
-	text-align:center;
-	color:#363f46;
+    text-align:center;
+    color:#363f46;
 }
 .produto-max h2 { 
-	margin-bottom:0;
-	font-weight:500;
+    margin-bottom:0;
+    font-weight:500;
 }
 .div-detalhes { 
-	width: 43%;
-	display: inline-block;
-	position: relative;
+    width: 43%;
+    display: inline-block;
+    position: relative;
     top: -2em;
 }
 .qtde-compra { 
-	text-align: center;
+    text-align: center;
     margin: 0 auto;
     display: block;
     width: 25%;
@@ -179,30 +179,32 @@ main {
     border: solid .01em rgba(0,138,156,.75);
 }
 .preco-max { 
-	font-weight:550;
+    font-weight:550;
 }
 .comprar-agora { 
-	margin: 2em auto 0 auto;
+    margin: 2em auto 0 auto;
     width: 40%;
     text-align: center;
     padding: 0.3em;
     border: .09em solid rgba(0,138,156,.75);	
-	background-color: rgba(0,138,156,.75);
-	font-size:1em;
-	cursor:pointer;
-	border-bottom:.1em solid transparent;
+    background-color: rgba(0,138,156,.75);
+    font-size:1em;
+    cursor:pointer;
+    border-bottom:.1em solid transparent;
+    font-size:.75em;
+    color:rgba(254,254,254);	
 }
 .comprar-agora a {
-	font-size:.75em;
-	color:rgba(254,254,254);	
+    font-size:.75em;
+    color:rgba(254,254,254);	
 }
-.comprar-agora:hover a { 
-	border-bottom:.1em solid rgba(254,254,254,.75);	
+.comprar-agora:hover { 
+    border-bottom:.1em solid rgba(254,254,254,.75);	
 }
 
 /*rodape*/
 .clear { 
-	clear:both;
+    clear:both;
 }
 .icones-sociais { 
     position: relative;
@@ -210,12 +212,12 @@ main {
     text-align: center;
 }
 .logo-grande {
-	height: 10em;
+    height: 10em;
     width: auto;
     position:relative;
-	top:4em;
-	display:block;
-	margin:0 auto;
+    top:4em;
+    display:block;
+    margin:0 auto;
 }
 .icones-sociais i {
     color:#363f46;

@@ -214,16 +214,16 @@ public class ProdutoBean implements ProdutoBeanRemote, ProdutoBeanLocal {
         return prod;
     }
 
-    public int getProdutoById(int codigo) {
-        int prod = 0;
+    public Produto getProdutoById(int codigo) {
+        Produto produto = null;
         try {
             ProdutoDAO produtoDAO = new ProdutoDAO();
-            Produto produto = produtoDAO.findById(codigo);
+            produto = produtoDAO.findById(codigo);
         } catch (Exception ex) {
             Logger.getLogger(ProdutoBean.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return prod;
+        return produto;
     }
 
     public void totalEstoque(int cproduto, int citempedido, int qtdeproduto, int qtdeestoque) {
