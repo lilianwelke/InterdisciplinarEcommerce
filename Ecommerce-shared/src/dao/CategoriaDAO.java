@@ -19,14 +19,13 @@ public class CategoriaDAO {
         connection = ConnectionUtil.getConnection();
     }
 
-    public Categoria inserirCategoria(int ccategoria, String categoria) throws Exception {
+    public Categoria inserirCategoria(String categoria) throws Exception {
 
         try {
             Categoria categ = new Categoria();
-            String SQL = "INSERT INTO CATEGORIA (CCATEGORIA, CATEGORIA) VALUES (?, ?)";
+            String SQL = "INSERT INTO CATEGORIA (CATEGORIA) VALUES (?)";
             PreparedStatement p = connection.prepareStatement(SQL);
-            p.setInt(1, ccategoria);
-            p.setString(2, categoria);
+            p.setString(1, categoria);
             p.execute();
             p.close();
             return categ;

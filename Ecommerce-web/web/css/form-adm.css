@@ -3,59 +3,67 @@ html {
 }
 .container {
     width:100%;
-    min-width:68em;	
-    margin:0 auto; 
+    max-width: 64em;
+    margin:0 auto;
     background-color:#FFF;
     height: 0;
 }
-header { 
-	position: fixed;
-	top:0;
-	left:0;
-	width:100%;
-	height:7em;	
-	background-color:#FFF;
-	z-index: 99;
+header {
+    position: relative;
+    top:0;
+    left:0;
+    width:100%;
+    height: 0em;
+    background-color:#fefefe;
+    z-index: 99;
 }
 nav {
-	position:fixed;
-	top:7em;
-	width:100%;
-	z-index: 99;
+    position: relative;
+    top:7em;
+    width:100%;
+    z-index: 99;
 }
-footer { 
-	position: relative;
-    bottom: 84px;
+footer {
+    position: relative;
+    bottom: -108px;
     width: 100%;
     background-color: #EEE;
     z-index: 10;
     height: 21em;
 }
-.head .logo {
-	height: 3.5em;
-    width: auto;
+.div-logo { 
     position: relative;
-    /*left: 6em;*/
     top: .75em;
-    display: block;
     margin: 0 auto;
+    height: 3.5em;
+    width: 3.462em;
+    /*left: 6em;*/
+}
+.head .logo {
+    height: 3.5em;
+    width: auto;
 }
 .div-nome { 
-    display: block;
     margin: 0 auto;
+    height: 3.188em;
+    width: 5em;
 }
-.head .nome {   
+.head .nome { 
+    /*display: inline-block;
+    position: relative;
+    left: .5em;
+    top: 1em;*/
     font-weight: 500;
     font-family: 'Amatic SC', cursive;
     font-size: 2.5em;
     margin: 0;
     color: #363f46;
-	text-align: center;
+    text-align: center;
 }
-.menul { 
+.menul {
     background-color:#EEE;
-	margin:0;
-    padding:0 0 0 5em;    
+    margin:0;
+    /* padding:0 0 0 5em; */
     text-align:center;
 }
 .menul li {	
@@ -71,103 +79,103 @@ footer {
     color:#363f46;
 }
 a {
-	text-decoration: none;
-	color: #333;
+    text-decoration: none;
+    color: #333;
 }
 .menul li:hover {	
     border-bottom: .15em solid #008a9c;
 }
 .form-pesquisa {
-	width: 30em;
-	position: relative;
+    width: 30em;
+    position: relative;
     left: 35em;
     top: -2.5em;
 }
 .pesquisa {
     display:none;
-	padding: .55em;
+    padding: .55em;
     width: 30em;
     border-radius: .25em;
-	font-family:Hind, Arial, sans-serif;
-	background-color:#EEE;
-	transition: .8s;
-     border: .1em solid transparent;
+    font-family:Hind, Arial, sans-serif;
+    background-color:#EEE;
+    transition: .8s;
+    border: .1em solid transparent;
 }
 .pesquisa:focus {
-	background-color:#FFF;
-	outline:none;
+    background-color:#FFF;
+    outline:none;
     border: .1em solid #008a9c;
 }
 .lupa { 
     display:none;
-	position:relative;
-	top:-4.75em;
-	left:63em;
-	color:#363f46;
-	cursor: pointer;
+    position:relative;
+    top:-4.75em;
+    left:63em;
+    color:#363f46;
+    cursor: pointer;
 }
 .lupa:hover {
-	color:#008a9c;
+    color:#008a9c;
 }
 .carrinho { 
     display:none;
-	position:relative;
-	top:-4.5em;
-	left:75em;
-	color:#363f46;
-	cursor: pointer;
+    position:relative;
+    top:-4.5em;
+    left:75em;
+    color:#363f46;
+    cursor: pointer;
 }
 .carrinho:hover { 
-	color:#008a9c;
+    color:#008a9c;
 }
-.conteudo { 
-    background: #EEE;
-    position: relative;
-    top: -33em;
+.conteudo {
+    background: #fefefe;
+    position: absolute;
+    top: 7em;
     left: 8em;
-    width: 70%;
-    height: 14em;
+    width: 75%;
+    height: 15em;
     opacity: .75;
 }
-.contem-gerencie { 
-	width:100%;
-	position: relative;
-    top: 9em;	
+.contem-gerencie {
+    width:100%;
+    position: relative;
+    top: 7em;
 }
 .gerencie { 
-	width:100%;
-	opacity:.5;
+    width:100%;
+    opacity:.5;
 }
 .titulo-adm {
-	position: absolute;
-    top: 2em;
-    left: 3em;
+    position: absolute;
+    top: 0em;
+    left: 1em;
     color: #363f46;
     font-size: 4em;
     font-weight: 500;
 }
 .subTitulo-adm {
-	position: absolute;
-    top: 16em;
-    left: 26em;
+    position: absolute;
+    top: 8em;
+    left: 22em;
     color: #363f46;
-    font-size: 1em;	
+    font-size: 1em;
 }
 .clear { 
-	clear:both;
+    clear:both;
 }
 .icones-sociais { 
     position: relative;
     top:2em;
-    left:35.5em;
+    text-align: center;
 }
 .logo-grande {
-	height: 10em;
+    height: 10em;
     width: auto;
     position:relative;
-	top:4em;
-	display:block;
-	margin:0 auto;
+    top:4em;
+    display:block;
+    margin:0 auto;
 }
 .icones-sociais i {
     color:#363f46;

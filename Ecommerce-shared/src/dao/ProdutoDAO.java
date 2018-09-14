@@ -21,22 +21,22 @@ public class ProdutoDAO {
         connection = ConnectionUtil.getConnection();
     }
 
-    public Produto inserirProduto(int cproduto, int ccategoria, int cmarca, String produto,
+    public Produto inserirProduto(int ccategoria, int cmarca, String produto,
             String descProduto, String fotoProduto, double precoProduto, double promocao, int qtdeEstoque) throws Exception {
         try {
             Produto prod = new Produto();
-            String SQL = "INSERT INTO PRODUTO (CPRODUTO, CCATEGORIA, CMARCA, PRODUTO, DESCPRODUTO, FOTOPRODUTO, PRECOPRODUTO, PROMOCAO, QTDEESTOQUE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO PRODUTO (CCATEGORIA, CMARCA, PRODUTO, DESCPRODUTO, FOTOPRODUTO, PRECOPRODUTO, PROMOCAO, QTDEESTOQUE) "
+                    + " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement p = connection.prepareStatement(SQL);
-            p.setInt(1, cproduto);
-            p.setInt(2, ccategoria);
-            p.setInt(3, cmarca);
-            p.setString(4, produto);
-            p.setString(5, descProduto);
-            p.setString(6, fotoProduto);
-            p.setDouble(7, precoProduto);
-            p.setDouble(8, promocao);
-            p.setInt(9, qtdeEstoque);
+            p.setInt(1, ccategoria);
+            p.setInt(2, cmarca);
+            p.setString(3, produto);
+            p.setString(4, descProduto);
+            p.setString(5, fotoProduto);
+            p.setDouble(6, precoProduto);
+            p.setDouble(7, promocao);
+            p.setInt(8, qtdeEstoque);
             p.execute();
             p.close();
             return prod;
@@ -82,6 +82,104 @@ public class ProdutoDAO {
         } catch (SQLException ex) {
             throw new Exception(ex);
         }
+    }
+
+    public List<Produto> findMarById(int ccategoria, int cmarca) throws SQLException {
+        List<Produto> lista = new ArrayList<>();
+        Produto prod;
+
+        String SQL = "SELECT PRODUTO.CPRODUTO, CATEGORIA.CCATEGORIA, MARCA.CMARCA, PRODUTO.PRODUTO, PRODUTO.DESCPRODUTO, PRODUTO.FOTOPRODUTO, "
+                + " PRODUTO.PRECOPRODUTO, PRODUTO.PROMOCAO, PRODUTO.QTDEESTOQUE, CATEGORIA.CATEGORIA, MARCA.MARCA"
+                + " FROM PRODUTO"
+                + " INNER JOIN CATEGORIA ON (PRODUTO.CCATEGORIA = CATEGORIA.CCATEGORIA)"
+                + " INNER JOIN MARCA ON (MARCA.CMARCA = PRODUTO.CMARCA)"
+                + " WHERE PRODUTO.CCATEGORIA = ? "
+                + " AND PRODUTO.CMARCA = ?";
+
+        try {
+            PreparedStatement p = connection.prepareStatement(SQL);
+            p.setInt(1, ccategoria);
+            p.setInt(2, cmarca);
+            ResultSet rs = p.executeQuery();
+            Categoria categ = new Categoria();
+            Marca marc = new Marca();
+
+            while (rs.next()) {
+                prod = new Produto();
+                prod.setCproduto(rs.getInt("cproduto"));
+                prod.setProduto(rs.getString("produto"));
+                prod.setDescProduto(rs.getString("descproduto"));
+                prod.setFotoProduto(rs.getString("fotoproduto"));
+                prod.setPrecoProduto(rs.getDouble("precoproduto"));
+                prod.setPromocao(rs.getDouble("promocao"));
+                prod.setQtdeEstoque(rs.getInt("qtdeestoque"));
+
+                categ.setCcategoria(rs.getInt("ccategoria"));
+                categ.setCategoria(rs.getString("categoria"));
+
+                marc.setCmarca(rs.getInt("cmarca"));
+                marc.setMarca(rs.getString("marca"));
+
+                prod.setCcategoria(categ);
+                prod.setCmarca(marc);
+
+                lista.add(prod);
+            }
+            rs.close();
+            p.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return lista;
+    }
+
+    public List<Produto> findCatById(int ccategoria) throws SQLException {
+        List<Produto> lista = new ArrayList<>();
+        Produto prod;
+
+        String SQL = "SELECT PRODUTO.CPRODUTO, CATEGORIA.CCATEGORIA, MARCA.CMARCA, PRODUTO.PRODUTO, PRODUTO.DESCPRODUTO, PRODUTO.FOTOPRODUTO, "
+                + " PRODUTO.PRECOPRODUTO, PRODUTO.PROMOCAO, PRODUTO.QTDEESTOQUE, CATEGORIA.CATEGORIA, MARCA.MARCA"
+                + " FROM PRODUTO"
+                + " INNER JOIN CATEGORIA ON (PRODUTO.CCATEGORIA = CATEGORIA.CCATEGORIA)"
+                + " INNER JOIN MARCA ON (MARCA.CMARCA = PRODUTO.CMARCA)"
+                + " WHERE PRODUTO.CCATEGORIA = ?";
+
+        try {
+            PreparedStatement p = connection.prepareStatement(SQL);
+            p.setInt(1, ccategoria);
+            ResultSet rs = p.executeQuery();
+            Categoria categ = new Categoria();
+            Marca marc = new Marca();
+
+            while (rs.next()) {
+                prod = new Produto();
+                prod.setCproduto(rs.getInt("cproduto"));
+                prod.setProduto(rs.getString("produto"));
+                prod.setDescProduto(rs.getString("descproduto"));
+                prod.setFotoProduto(rs.getString("fotoproduto"));
+                prod.setPrecoProduto(rs.getDouble("precoproduto"));
+                prod.setPromocao(rs.getDouble("promocao"));
+                prod.setQtdeEstoque(rs.getInt("qtdeestoque"));
+
+                categ.setCcategoria(rs.getInt("ccategoria"));
+                categ.setCategoria(rs.getString("categoria"));
+
+                marc.setCmarca(rs.getInt("cmarca"));
+                marc.setMarca(rs.getString("marca"));
+
+                prod.setCcategoria(categ);
+                prod.setCmarca(marc);
+
+                lista.add(prod);
+            }
+            rs.close();
+            p.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return lista;
     }
 
     public List<Produto> pesquisaProduto(String produto) throws SQLException {

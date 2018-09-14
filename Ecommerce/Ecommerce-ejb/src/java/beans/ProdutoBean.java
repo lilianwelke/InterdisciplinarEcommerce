@@ -16,12 +16,12 @@ import model.Produto;
 public class ProdutoBean implements ProdutoBeanRemote, ProdutoBeanLocal {
 
     @Override
-    public void cadastrarProduto(int cproduto, int ccategoria, int cmarca, String produto,
+    public void cadastrarProduto(int ccategoria, int cmarca, String produto,
             String descProduto, String fotoProduto, double precoProduto, double promocao, int qtdeEstoque) {
 
         try {
             ProdutoDAO produtoDAO = new ProdutoDAO();
-            Produto prod = produtoDAO.inserirProduto(cproduto, ccategoria, cmarca, produto,
+            Produto prod = produtoDAO.inserirProduto(ccategoria, cmarca, produto,
                     descProduto, fotoProduto, precoProduto, promocao, qtdeEstoque);
 
         } catch (Exception ex) {
@@ -52,11 +52,11 @@ public class ProdutoBean implements ProdutoBeanRemote, ProdutoBeanLocal {
     }
 
     @Override
-    public void cadastrarMarca(int cmarca, String marca) {
+    public void cadastrarMarca(String marca) {
 
         try {
             MarcaDAO marcaDAO = new MarcaDAO();
-            Marca marc = marcaDAO.inserirMarca(cmarca, marca);
+            Marca marc = marcaDAO.inserirMarca(marca);
         } catch (Exception ex) {
             Logger.getLogger(ProdutoBean.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -83,10 +83,10 @@ public class ProdutoBean implements ProdutoBeanRemote, ProdutoBeanLocal {
 
     }
 
-    public void cadastrarCategoria(int ccategoria, String categoria) {
+    public void cadastrarCategoria(String categoria) {
         try {
             CategoriaDAO categoriaDAO = new CategoriaDAO();
-            Categoria categ = categoriaDAO.inserirCategoria(ccategoria, categoria);
+            Categoria categ = categoriaDAO.inserirCategoria(categoria);
         } catch (Exception ex) {
             Logger.getLogger(ProdutoBean.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -224,6 +224,30 @@ public class ProdutoBean implements ProdutoBeanRemote, ProdutoBeanLocal {
         }
 
         return produto;
+    }
+
+    public List<Produto> getCategoriaById(int codigo) {
+        ArrayList<Produto> prod = null;
+        try {
+            ProdutoDAO produtoDAO = new ProdutoDAO();
+            prod = (ArrayList<Produto>) produtoDAO.findCatById(codigo);
+        } catch (Exception ex) {
+            Logger.getLogger(ProdutoBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return prod;
+    }
+
+    public List<Produto> getMarcaById(int codigoC, int codigoM) {
+        ArrayList<Produto> prod = null;
+        try {
+            ProdutoDAO produtoDAO = new ProdutoDAO();
+            prod = (ArrayList<Produto>) produtoDAO.findMarById(codigoC, codigoM);
+        } catch (Exception ex) {
+            Logger.getLogger(ProdutoBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return prod;
     }
 
     public void totalEstoque(int cproduto, int citempedido, int qtdeproduto, int qtdeestoque) {

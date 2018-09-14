@@ -3,24 +3,26 @@ html {
 }
 .container {
     width:100%;
-    min-width:68em;	
-    margin:0 auto; 
+    max-width: 64em;
+    margin:0 auto;
     background-color:#FFF;
     height: 0;
 }
-header { 
-    position: fixed;
+header {
+    position: relative;
     top:0;
     left:0;
     width:100%;
-    height:7em;	
+    max-width: 58em;
+    height:7em;
     background-color:#fefefe;
     z-index: 99;
 }
 nav {
-    position:fixed;
+    position: absolute;
     top:7em;
     width:100%;
+    max-width: 64em;
     z-index: 99;
 }
 footer { 
@@ -62,16 +64,16 @@ footer {
     margin: 0;
     color: #363f46;
 }
-.menul { 
+.menul {
     background-color:#EEE;
     margin:0;
-    padding:0 0 0 5em;    
+    /* padding: 0 0 0 1em; */
     text-align:center;
 }
-.menul li {	
+.menul li {
     display: inline-block;
-    margin: .63em 3.15em .45em 3.15em;
-    padding: 0;    
+    margin: .63em 1.15em .45em 3.15em;
+    padding: 0;
     font-size: .9em;
     position: relative;
     left: -1.99em;
@@ -88,9 +90,10 @@ a {
     border-bottom: .15em solid #008a9c;
 }
 .form-pesquisa {
+    display: none;
     width: 30em;
     position: relative;
-    left: 35em;
+    left: 38%;
     top: -2.5em;
 }
 .pesquisa {    
@@ -107,22 +110,24 @@ a {
     outline:none;
     border: .1em solid #008a9c;
 }
-.lupa {     
+.lupa {
+    display: none;
     position:relative;
     top:-4.75em;
-    left:63em;
+    left: 50em;
     color:#363f46;
     cursor: pointer;
 }
 .lupa:hover {
     color:#008a9c;
 }
-.carrinho {    
+.carrinho {
     position:relative;
-    top:-4.5em;
-    left:75em;
+    top: -4.5em;
+    left: 94%;
     color:#363f46;
     cursor: pointer;
+    display: none;
 }
 .carrinho:hover { 
     color:#008a9c;
@@ -180,10 +185,10 @@ main {
     width: 100%;	
     padding-bottom: 2em;
 }
-.cabecalhoCar { 
+.cabecalhoCar {
     position: relative;
-    top: 14em;
-    left: 11em;
+    top: 7em;
+    left: 8em;
     width: 76%;
 }
 .cabecalhoCar h2 { 
@@ -217,7 +222,7 @@ td {
     color:#363f46;
 }
 .td-img { 
-    width: 28%;
+    width: 20%;
     padding:1em;
 }
 .td-prod { 
@@ -261,9 +266,9 @@ td {
 .preco-max { 
     font-weight:550;
 }
-#finalizar-compra { 
+#finalizar-compra {
     margin: 2em 2em 0 auto;
-    width: 20%;
+    width: 26%;
     text-align: center;
     padding: 0.3em;
     border: .09em solid rgba(0,138,156,.75);

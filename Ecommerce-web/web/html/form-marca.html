@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR" dir="ltr">
-
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="LILIAN GABI">
-        <meta name="keywords" content="ECOMMERCE">
-        <meta name="description" content="ECOMMERCE GALIAN">             
+        <meta name="author" content="LILIAN WELKE">
+        <meta name="keywords" content="HTML5, CSS3">
+        <meta name="description" content="MODELO HTML5, CSS3">             
         <link rel="stylesheet" href="../css/normalize.css">
-        <link rel="stylesheet" href="../css/form-carrinho.css">
+        <link rel="stylesheet" href="../css/form-marca.css">
         <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
         <!--[if lt IE 9]>
         <script src="../script/html5shiv.js"></script>
         <![endif]-->
-        <script src="../script/html5shiv.js"></script>        
+        <script src="../script/html5shiv.js"></script>		
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-        <title>Galian - Carrinho</title>
-    </head>  
-    <body>
+        <title>Galian - Marcas</title>             
+    </head>
+    <body>	
         <div class="container">
             <div class="overlay"></div>
             <header class="head">
-                <a href=""><img class="logo" src="../img/teste.png" title="Início"></a>
-                <a href=""><h1 class="nome" title="Início">Galian</h1></a>
+                <div class="div-logo"><a href="form-adm.html"><img class="logo" src="../img/teste.png" title="Início"></a></div>
+                <div class="div-nome"><a href="form-adm.html"><h1 class="nome" title="Início">Galian</h1></a></div>
                 <form class="form-pesquisa">
                     <input name="conteudo-pesquisa" class="pesquisa" type="search" placeholder="O que você quer?">
                 </form>
@@ -31,17 +30,25 @@
             </header>
             <nav>				
                 <ul class="menul">   
-                    <li><a href="">Maquiagem</a></li>
-                    <li><a href="">Perfumaria</a></li>
-                    <li><a href="">Cabelos</a></li>
-                    <li><a href="">Cuidados</a></li>
+                    <li><a href="form-produto.html">Produtos</a></li>
+                    <li><a href="form-marca.html">Marcas</a></li>
+                    <li><a href="form-categoria.html">Categorias</a></li>
+<!--                    <li><a href="form-relatorio.html">Relatórios</a></li>-->
                 </ul>				
             </nav>
-            <main>
-                		
-                <section>
-
-                </section>			
+            <main>			
+                <div class="conteudo">
+                    <div class="conteudo-formulario">
+                        <form>
+                            <fieldset>
+                                <legend>Cadastro Marca</legend>                                
+                                <label>Marca:&nbsp;</label><br><input type="text" id="marca" name="marca" placeholder="Marca"/>
+                                <br>                                
+                                <input type='button' id='btn-salvar' value='Salvar'/>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>	
             </main>
             <div class="clear"></div>
             <footer>			
@@ -57,6 +64,6 @@
                 <p>CNPJ 22.248.62/1517-52</p>
             </footer>
         </div>		
-        <script src="../script/form-carrinho.js"></script>
-    </body>
-</html>
+        <script src="../script/form-marca.js"></script>		
+    </body>    
+</html>    

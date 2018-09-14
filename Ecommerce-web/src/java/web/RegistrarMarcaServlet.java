@@ -37,10 +37,9 @@ public class RegistrarMarcaServlet extends HttpServlet {
         JsonReader reader = Json.createReader(new StringReader(content));
         JsonObject produtoMarca = reader.readObject();
 
-        int cmarca = produtoMarca.getJsonNumber("cmarca").intValue();
         String marca = produtoMarca.getJsonString("marca").getString();
 
-        bean.cadastrarMarca(cmarca, marca);
+        bean.cadastrarMarca(marca);
 
         saida.print("{\"msg\":\"Certo\"}");
     }

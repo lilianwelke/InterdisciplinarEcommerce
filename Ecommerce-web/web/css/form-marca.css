@@ -13,40 +13,34 @@ header {
     top:0;
     left:0;
     width:100%;
-    max-width: 58em;
-    height:7em;
+    height: 0em;
     background-color:#fefefe;
     z-index: 99;
 }
 nav {
-    position: absolute;
+    position: relative;
     top:7em;
     width:100%;
-    max-width: 64em;
     z-index: 99;
 }
 footer { 
     position: relative;
-    bottom: 0em;
+    bottom: 0;
     width: 100%;
     background-color: #EEE;
     z-index: 10;
     height: 21em;
 }
-.div-logo { 
+.div-logo {
     position: relative;
     top: .75em;
     margin: 0 auto;
     height: 3.5em;
     width: 3.462em;
-    left: 6em;
 }
-.head .logo {	
-    position: relative;
-    top: .75em;
+.head .logo {
     height: 3.5em;
     width: auto;
-    left: 6em;
 }
 .div-nome { 
     margin: 0 auto;
@@ -54,26 +48,26 @@ footer {
     width: 5em;
 }
 .head .nome { 
-    display: inline-block;
+    /*display: inline-block;
     position: relative;
     left: .5em;
-    top: 1em;
+    top: 1em;*/
     font-weight: 500;
     font-family: 'Amatic SC', cursive;
     font-size: 2.5em;
     margin: 0;
     color: #363f46;
+    text-align: center;
 }
 .menul {
     background-color:#EEE;
     margin:0;
-    /* padding: 0 0 0 1em; */
     text-align:center;
 }
-.menul li {
+.menul li {	
     display: inline-block;
-    margin: .63em 1.15em .45em 3.15em;
-    padding: 0;
+    margin: .63em 3.15em .45em 3.15em;
+    padding: 0;    
     font-size: .9em;
     position: relative;
     left: -1.99em;
@@ -90,13 +84,13 @@ a {
     border-bottom: .15em solid #008a9c;
 }
 .form-pesquisa {
-    display: none;
     width: 30em;
     position: relative;
-    left: 38%;
+    left: 35em;
     top: -2.5em;
 }
-.pesquisa {    
+.pesquisa {
+    display:none;
     padding: .55em;
     width: 30em;
     border-radius: .25em;
@@ -110,103 +104,80 @@ a {
     outline:none;
     border: .1em solid #008a9c;
 }
-.lupa {
-    display: none;
+.lupa { 
+    display:none;
     position:relative;
     top:-4.75em;
-    left: 50em;
+    left:63em;
     color:#363f46;
     cursor: pointer;
 }
 .lupa:hover {
     color:#008a9c;
 }
-.carrinho {
-    position: relative;
-    top: 1.5em;
-    left: 81%;
-    color: #363f46;
+.carrinho { 
+    display:none;
+    position:relative;
+    top:-4.5em;
+    left:75em;
+    color:#363f46;
     cursor: pointer;
 }
 .carrinho:hover { 
     color:#008a9c;
 }
-main {	
-    background:linear-gradient(to bottom, rgba(236,248,248,0.3), rgba(0,138,156,0.3)); 
-    padding-bottom: 25em;
-}
-.conteudo { 
-    position: absolute;
-    top: 5em;
-    left: 5em;
-    width: 17.25em;
-    height: 13em;
-}
-.conteudo h2, h3, p { 
-    text-shadow:  1px 1px #fefefe;
-}
-.produto-max { 
-    background: rgba(254,254,254,.75);
+main {
+    background:linear-gradient(to bottom, rgba(236,248,248,0.3), rgba(0,138,156,0.3));
+    padding-bottom: 24em;
+    top: 7em;
     position: relative;
-    top: 14em;
-    left: 8em;
-    width: 76%;
 }
-.div-produtoMax { 
-    width: 45%;
-    margin: 2em;
-    display: inline-block;
-}
-.foto-max {
-    width: 100%;	
-}
-.produto-max h2, p { 
-    text-align:center;
-    color:#363f46;
-}
-.produto-max h2 { 
-    margin-bottom:0;
-    font-weight:500;
-}
-.div-detalhes { 
-    width: 43%;
-    display: inline-block;
+.conteudo {
+    background: #fefefe;
     position: relative;
-    top: -2em;
+    top: 4em;
+    margin:0 auto;
+    width: 50%;
+    min-height: 14.5em;
+    opacity: .75;
 }
-.qtde-compra { 
-    text-align: center;
+.conteudo-formulario {
+    position: relative;
+    top: 2em;
     margin: 0 auto;
-    display: block;
-    width: 25%;
-    line-height: 3em;
-    border: solid .01em rgba(0,138,156,.75);
+    width: 55%;
 }
-.preco-max { 
-    font-weight:550;
+.conteudo-formulario input, label{ 
+    margin-bottom:.5em;
 }
-.comprar-agora { 
-    margin: 2em auto 0 auto;
-    width: 40%;
-    text-align: center;
-    padding: 0.3em;
-    border: .09em solid rgba(0,138,156,.75);	
-    background-color: rgba(0,138,156,.75);
-    font-size:1em;
-    cursor:pointer;
-    border-bottom:.1em solid transparent;
-    font-size:.75em;
-    color:rgba(254,254,254);	
+.conteudo-formulario input{ 
+    background-color:#eee;	
 }
-.comprar-agora a {
-    font-size:.75em;
-    color:rgba(254,254,254);	
+#cMarca { 
+    width:7em;
 }
-.comprar-agora:hover { 
-    border-bottom:.1em solid rgba(254,254,254,.75);	
+#marca { 
+    width:14em;
 }
-
-/*rodape*/
+.conteudo-tabela { 
+    position: relative;
+    top: 3em;
+    width: 55%;
+    margin: 0 auto;
+}
+table, th, tr, td { 
+    border: solid #363f46 .1em;
+    border-collapse: collapse;
+}
+th, td {
+    width: 20em;
+    padding: .1em .3em;
+    text-align: left;
+    font-weight: 300;
+}
+.linhaSelecionada{
+    background-color:rgba(0,138,156,0.3);
+}
 .clear { 
     clear:both;
 }
@@ -246,7 +217,7 @@ main {
     cursor: pointer;
 }
 .insta i { 
-    padding: .0725em .15em;    
+    padding: 0 .15em 0.09em .15em;
 }
 .insta:hover i { 
     border-radius:.15em;    

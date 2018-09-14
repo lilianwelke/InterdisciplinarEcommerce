@@ -23,13 +23,12 @@ public class MarcaDAO {
         connection = ConnectionUtil.getConnection();
     }
 
-    public Marca inserirMarca(int cmarca, String marca) throws Exception {
+    public Marca inserirMarca(String marca) throws Exception {
         try {
             Marca marc = new Marca();
-            String SQL = "INSERT INTO MARCA (CMARCA, MARCA) VALUES (?, ?)";
+            String SQL = "INSERT INTO MARCA (MARCA) VALUES (?)";
             PreparedStatement p = connection.prepareStatement(SQL);
-            p.setInt(1, cmarca);
-            p.setString(2, marca);
+            p.setString(1, marca);
             p.execute();
             p.close();
             return marc;

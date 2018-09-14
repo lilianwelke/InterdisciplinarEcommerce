@@ -2,7 +2,9 @@ package web;
 
 import beans.ProdutoBeanRemote;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import static java.lang.Integer.parseInt;
 import java.util.logging.Level;
@@ -26,6 +28,11 @@ public class ListarDetalhesServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("aplicarion/json");
         PrintWriter saida = resp.getWriter();
+
+        //Mudei isso
+        BufferedReader leitor = new BufferedReader(
+                new InputStreamReader(req.getInputStream(), "UTF-8"));
+        //at
 
         int cproduto = parseInt(req.getParameter("cproduto"));
 

@@ -38,7 +38,6 @@ public class RegistrarProdutoServlet extends HttpServlet {
         JsonReader reader = Json.createReader(new StringReader(content));
         JsonObject produtoS = reader.readObject();
 
-        int cproduto = produtoS.getJsonNumber("cproduto").intValue();
         int ccategoria = produtoS.getJsonNumber("ccategoria").intValue();
         int cmarca = produtoS.getJsonNumber("cmarca").intValue();
         String produto = produtoS.getJsonString("produto").getString();
@@ -48,7 +47,7 @@ public class RegistrarProdutoServlet extends HttpServlet {
         double promocao = produtoS.getJsonNumber("promocao").doubleValue();
         int qtdeEstoque = produtoS.getJsonNumber("qtdeEstoque").intValue();
 
-        bean.cadastrarProduto(cproduto, ccategoria, cmarca, produto, descProduto, fotoProduto, precoProduto, promocao, qtdeEstoque);
+        bean.cadastrarProduto(ccategoria, cmarca, produto, descProduto, fotoProduto, precoProduto, promocao, qtdeEstoque);
         saida.print("{\"msg\":\"Certo\"}");
     }
 }

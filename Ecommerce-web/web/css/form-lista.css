@@ -3,24 +3,26 @@ html {
 }
 .container {
     width:100%;
-    min-width:68em;	
-    margin:0 auto; 
+    max-width: 64em;
+    margin:0 auto;
     background-color:#FFF;
     height: 0;
 }
-header { 
-    position: fixed;
+header {
+    position: relative;
     top:0;
     left:0;
     width:100%;
-    height:7em;	
+    max-width: 58em;
+    height:7em;
     background-color:#fefefe;
     z-index: 99;
 }
 nav {
-    position:fixed;
+    position: absolute;
     top:7em;
     width:100%;
+    max-width: 64em;
     z-index: 99;
 }
 footer { 
@@ -30,11 +32,6 @@ footer {
     background-color: #EEE;
     z-index: 10;
     height: 21em;
-}
-section { 
-    position: relative;
-    top: -24.5em;
-    left: 22em;
 }
 .div-logo { 
     position: relative;
@@ -67,16 +64,16 @@ section {
     margin: 0;
     color: #363f46;
 }
-.menul { 
+.menul {
     background-color:#EEE;
     margin:0;
-    padding:0 0 0 5em;    
+    /* padding: 0 0 0 1em; */
     text-align:center;
 }
-.menul li {	
+.menul li {
     display: inline-block;
-    margin: .63em 3.15em .45em 3.15em;
-    padding: 0;    
+    margin: .63em 1.15em .45em 3.15em;
+    padding: 0;
     font-size: .9em;
     position: relative;
     left: -1.99em;
@@ -95,7 +92,7 @@ a {
 .form-pesquisa {
     width: 30em;
     position: relative;
-    left: 35em;
+    left: 38%;
     top: -2.5em;
 }
 .pesquisa {    
@@ -112,21 +109,21 @@ a {
     outline:none;
     border: .1em solid #008a9c;
 }
-.lupa {     
+.lupa {
     position:relative;
     top:-4.75em;
-    left:63em;
+    left: 50em;
     color:#363f46;
     cursor: pointer;
 }
 .lupa:hover {
     color:#008a9c;
 }
-.carrinho {    
-    position:relative;
-    top:-4.5em;
-    left:75em;
-    color:#363f46;
+.carrinho {
+    position: relative;
+    top: -4.5em;
+    left: 98%;
+    color: #363f46;
     cursor: pointer;
 }
 .carrinho:hover { 
@@ -138,10 +135,16 @@ main {
     background:linear-gradient(to bottom, rgba(236,248,248,0.3), rgba(0,138,156,0.3)); 
     padding-bottom: 50em;
 }
+section { 
+    width: 60%;
+    position: absolute;
+    margin: -4em 12em;   
+}
 .contem-menu { 
     position: relative;
     width: 20%;
-    top: 9em;
+    top: 5em;
+    margin-right: 0;
 }	
 .menu-lateral div { 
     border-bottom: .09em solid rgba(0,138,156,.75);
@@ -182,18 +185,19 @@ main {
     text-shadow:  1px 1px #fefefe;
 }
 .produto-mini { 
-    background: rgba(254,254,254,.75);    
-    width: 20%;
-    height: 27em;
-    display: inline-block; 
-    margin:1em;
+    background: rgba(254,254,254,.75);
+    width: 27%;
+    height: 24em;
+    display: inline-block;
+    margin: 0 .7em;
+    margin-bottom: 2em;
 }
 .div-produto { 
     width: 80%;
     margin: 0 auto;
 }
 .foto-mini {
-    width: 100%;
+    max-width: 100%;
     margin-top: 2em;	
 }
 .produto-mini h2, p { 

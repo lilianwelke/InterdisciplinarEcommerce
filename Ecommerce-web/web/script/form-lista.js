@@ -9,8 +9,14 @@ function init() {
     for (var i = 0; i < menul.length; i++) {
         menul[i].addEventListener('click', chamarCategoria);
     }
+    
+    var menulateral = document.querySelector('.menu-lateral').querySelectorAll('li');
+    for (var i = 0; i < menulateral.length; i++) {
+        menulateral[i].addEventListener('click', chamarMarca);
+    }
 
 }
+var ccategoria, cmarca;
 function chamaPesquisa() {
     document.querySelector('section').innerHTML = '';
     fazerRequisicaoPesquisa("GET", "http://localhost:8080/ecommerce-web/listarprodutos", false, listarProdutosPesquisa);
@@ -86,8 +92,10 @@ function listarProdutosPesquisa(jsonData) {
     }    
 }
 
-function chamarCategoria() {
-    fazerRequisicao("POST", "http://localhost:8080/ecommerce-web/listarprodutos", false, buscaCategoria);
+function chamarCategoria(e) {
+    ccategoria = this.id;
+    document.querySelector('section').innerHTML = '';
+    fazerRequisicaoCategoria("GET", "http://localhost:8080/ecommerce-web/listarprodutos", false, listarProdutosCategoria);
 }
 
 function fazerRequisicaoCategoria(metodo, url, assincrona, callback) {
@@ -105,15 +113,127 @@ function fazerRequisicaoCategoria(metodo, url, assincrona, callback) {
             console.log("Aguarde...");
         }
     };
-    
-    var categoria = null;
-    if (document.querySelector('.pesquisa').value !== '') { 
-        produto = document.querySelector('.pesquisa').value;
-    }
-    
-    http.open(metodo, url+ "?produto=" + produto, assincrona);
+        
+    http.open(metodo, url+ "?ccategoria=" + ccategoria, assincrona);
     http.setRequestHeader("Authorization", "ehaiuahdfu32ioqpeyrq");
     http.send();
+}
+
+function listarProdutosCategoria(jsonData) {
+    var jsons = jsonData.split("#GL#");
+    var objProd = JSON.parse(jsons[4]);
+
+    var dv, dvImg, img, hCinco, p, dvDetalhes, arr;
+    for (var i = 0; i < objProd.length; i++)
+    {
+        dv = document.createElement('div');
+        dv.setAttribute('class', 'produto-mini');
+        document.querySelector('section').appendChild(dv);
+
+        dvImg = document.createElement('div');
+        dvImg.setAttribute('class', 'div-produto');
+        dv.appendChild(dvImg);
+
+        img = document.createElement('img');
+        img.src = objProd[i]['fotoProduto'];
+        img.setAttribute('class', 'foto-mini');
+        dvImg.appendChild(img);
+
+        hCinco = document.createElement('h2');
+        hCinco.innerText = objProd[i]['produto'];
+        hCinco.setAttribute('class', 'hCinco-mini');
+        dv.appendChild(hCinco);
+
+        p = document.createElement('p');
+        p.innerText = 'R$ ' + objProd[i]['precoProduto'].toFixed(2).replace('.', ',');
+        p.setAttribute('class', 'preco-mini');
+        dv.appendChild(p);
+
+        dvDetalhes = document.createElement('div');
+        dvDetalhes.setAttribute('class', 'detalhes');
+        dv.appendChild(dvDetalhes);
+        dvDetalhes.setAttribute('id', objProd[i]['cproduto']);
+        dvDetalhes.setAttribute('class', 'detalhes');
+        dvDetalhes.innerText = 'VER DETALHES';
+        
+    }
+    
+    arr = document.querySelectorAll('.detalhes');
+    for (var j = 0; j < arr.length; j++) {
+        arr[j].addEventListener('click', chamaDetalhes);
+    }    
+}
+
+function chamarMarca(e) {
+    cmarca = this.id;
+    document.querySelector('section').innerHTML = '';
+    fazerRequisicaoCategoria("GET", "http://localhost:8080/ecommerce-web/listarprodutos", false, listarProdutosMarca);
+}
+
+function fazerRequisicaoCategoria(metodo, url, assincrona, callback) {
+    var http = new XMLHttpRequest();
+    http.onreadystatechange = function ()
+    {
+        if (this.readyState === 4 && this.status === 200) {
+            console.log("Ok.");
+            callback(this.responseText);
+        }
+        if (this.readyState === 4 && this.status !== 200) {
+            console.log("Erro: " + this.statusText);
+        }
+        if (this.readyState === 3) {
+            console.log("Aguarde...");
+        }
+    };
+        
+    http.open(metodo, url+ "?ccategoria=" + ccategoria + "&cmarca=" + cmarca , assincrona);
+    http.setRequestHeader("Authorization", "ehaiuahdfu32ioqpeyrq");
+    http.send();
+}
+
+function listarProdutosMarca(jsonData) {
+    var jsons = jsonData.split("#GL#");
+    var objProd = JSON.parse(jsons[5]);
+
+    var dv, dvImg, img, hCinco, p, dvDetalhes, arr;
+    for (var i = 0; i < objProd.length; i++)
+    {
+        dv = document.createElement('div');
+        dv.setAttribute('class', 'produto-mini');
+        document.querySelector('section').appendChild(dv);
+
+        dvImg = document.createElement('div');
+        dvImg.setAttribute('class', 'div-produto');
+        dv.appendChild(dvImg);
+
+        img = document.createElement('img');
+        img.src = objProd[i]['fotoProduto'];
+        img.setAttribute('class', 'foto-mini');
+        dvImg.appendChild(img);
+
+        hCinco = document.createElement('h2');
+        hCinco.innerText = objProd[i]['produto'];
+        hCinco.setAttribute('class', 'hCinco-mini');
+        dv.appendChild(hCinco);
+
+        p = document.createElement('p');
+        p.innerText = 'R$ ' + objProd[i]['precoProduto'].toFixed(2).replace('.', ',');
+        p.setAttribute('class', 'preco-mini');
+        dv.appendChild(p);
+
+        dvDetalhes = document.createElement('div');
+        dvDetalhes.setAttribute('class', 'detalhes');
+        dv.appendChild(dvDetalhes);
+        dvDetalhes.setAttribute('id', objProd[i]['cproduto']);
+        dvDetalhes.setAttribute('class', 'detalhes');
+        dvDetalhes.innerText = 'VER DETALHES';
+        
+    }
+    
+    arr = document.querySelectorAll('.detalhes');
+    for (var j = 0; j < arr.length; j++) {
+        arr[j].addEventListener('click', chamaDetalhes);
+    }    
 }
 
 //modelo

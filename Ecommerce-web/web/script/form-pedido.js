@@ -28,8 +28,9 @@ function fazerRequisicao(metodo, url, assincrona, callback) {
     http.send(JSON.stringify(cliente));
 }
 
+//Mudei aqui p true
 function chamarCliente() {
-    fazerRequisicao("POST", "http://localhost:8080/ecommerce-web/listarclientes", false, verificarCliente);
+    fazerRequisicao("POST", "http://localhost:8080/ecommerce-web/listarclientes", true, verificarCliente);
 }
 
 function verificarCliente(jsonData) {
@@ -53,8 +54,9 @@ function verificarCliente(jsonData) {
     }
 }
 
+//Mudei aqui p true
 function chamarRegistra() {
-    registrarCliente("POST", "http://localhost:8080/ecommerce-web/registrarcliente", false);
+    registrarCliente("POST", "http://localhost:8080/ecommerce-web/registrarcliente", true);
 }
 
 function registrarCliente(metodo, url, assincrona) {
@@ -92,8 +94,9 @@ function registrarCliente(metodo, url, assincrona) {
 
 }
 
+//Mudei aqui p true
 function confirmarCompra() {
-    registrarPedido("POST", "http://localhost:8080/ecommerce-web/registrarpedido", false);
+    registrarPedido("POST", "http://localhost:8080/ecommerce-web/registrarpedido", true);
 }
 
 function registrarPedido(metodo, url, assincrona) {
@@ -137,10 +140,11 @@ function registrarPedido(metodo, url, assincrona) {
 
 }
 
+//Mudei aqui p true
 function getPedido(jsonData) {
     var obj = JSON.parse(jsonData);
     pedidoSave = obj["cPedido"];
-    registrarItemPedido("POST", "http://localhost:8080/ecommerce-web/registraritempedido", false);
+    registrarItemPedido("POST", "http://localhost:8080/ecommerce-web/registraritempedido", true);
     document.querySelector('.cabecalhoConf').style.display = 'none';
     document.querySelector('.cabecalhoSucesso').style.display = 'block';
     localStorage.clear();

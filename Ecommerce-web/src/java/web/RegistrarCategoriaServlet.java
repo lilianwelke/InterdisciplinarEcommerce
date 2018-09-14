@@ -42,12 +42,11 @@ public class RegistrarCategoriaServlet extends HttpServlet {
         JsonReader reader = Json.createReader(new StringReader(content));
         JsonObject produtoCategoria = reader.readObject();
 
-        int ccategoria = produtoCategoria.getJsonNumber("ccategoria").intValue();
         String categoria = produtoCategoria.getJsonString("categoria").getString();
 
-        bean.cadastrarCategoria(ccategoria, categoria);
+        bean.cadastrarCategoria(categoria);
 
-        saida.print("{\"msg\":\"Certo\"}");
+        saida.print("{\"msg\":\"certo\"}");
     }
 
 }

@@ -9,20 +9,20 @@ import model.Produto;
 @Remote
 public interface ProdutoBeanRemote {
 
-    public void cadastrarProduto(int cproduto, int ccategoria, int cmarca, String produto,
+    public void cadastrarProduto(int ccategoria, int cmarca, String produto,
             String descProduto, String fotoProduto, double precoProduto, double promocao, int qtdeEstoque);
 
     public void atualizarProduto(int cproduto, int ccategoria, int cmarca, String produto, String descProduto, String fotoProduto, double precoProduto, double promocao, int qtdeEstoque);
 
     public void deletarProduto(int cproduto);
 
-    public void cadastrarMarca(int cmarca, String marca);
+    public void cadastrarMarca(String marca);
 
     public void atualizarMarca(int cmarca, String marca);
 
     public void deletarMarca(int cmarca);
 
-    public void cadastrarCategoria(int ccategoria, String categoria);
+    public void cadastrarCategoria(String categoria);
 
     public void atualizarCategoria(int ccategoria, String categoria);
 
@@ -47,5 +47,9 @@ public interface ProdutoBeanRemote {
     public List<Produto> getProduto();
 
     public Produto getProdutoById(int codigo);
+
+    public List<Produto> getCategoriaById(int codigo);
+
+    public List<Produto> getMarcaById(int codigoC, int codigoM);
 
 }

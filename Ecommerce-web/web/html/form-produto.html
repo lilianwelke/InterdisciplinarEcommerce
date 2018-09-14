@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="LILIAN WELKE">
+        <meta name="keywords" content="HTML5, CSS3">
+        <meta name="description" content="MODELO HTML5, CSS3">             
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/form-produto.css">
+        <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+        <!--[if lt IE 9]>
+        <script src="../script/html5shiv.js"></script>
+        <![endif]-->
+        <script src="../script/html5shiv.js"></script>		
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <title>Galian - Produtos</title>             
+    </head>
+    <body>	
+        <div class="container">
+            <div class="overlay"></div>
+            <header class="head">
+                <div class="div-logo"><a href="form-adm.html"><img class="logo" src="../img/teste.png" title="Início"></a></div>
+                <div class="div-nome"><a href="form-adm.html"><h1 class="nome" title="Início">Galian</h1></a></div>
+                <form class="form-pesquisa">
+                    <input name="conteudo-pesquisa" class="pesquisa" type="search" placeholder="O que você quer?">
+                </form>
+                <span class="lupa"><i class="fa fa-search" style="font-size:24px"></i></span>
+                <span class="carrinho"><i class="fa fa-shopping-cart" style="font-size:28px"></i></span>
+            </header>
+            <nav>				
+                <ul class="menul">   
+                    <li><a href="form-produto.html">Produtos</a></li>
+                    <li><a href="form-marca.html">Marcas</a></li>
+                    <li><a href="form-categoria.html">Categorias</a></li>
+                    <!--                    <li><a href="form-relatorio.html">Relatórios</a></li>-->
+                </ul>				
+            </nav>
+            <main>			
+                <div class="conteudo">
+                    <div class="conteudo-formulario">
+                        <form>
+                            <fieldset>
+                                <legend>Cadastro Produto</legend>                                
+                                <label>Cod. Categoria&nbsp;</label><br><input type="text" id="ccategoria" name="ccategoria" placeholder="Cod. Categoria"/>
+                                <br>
+                                <label>Cod. Marca:&nbsp;</label><br><input type="text" id="cmarca" name="cmarca" placeholder="Cod. Marca:"/>
+                                <br>
+                                <label>Produto&nbsp;</label><br><input type="text" id="produto" name="produto" placeholder="Produto"/>
+                                <br>
+                                <label>Descrição&nbsp;</label><br><input type="text" id="descProduto" name="descProduto" placeholder="Descrição"/>
+                                <br>
+                                <label>Foto&nbsp;</label><br><input type="file" name="fotoProduto" id="fotoProduto"/>
+                                <br>
+                                <label>Preço&nbsp;</label><br><input type="text" id="precoProduto" name="precoProduto" placeholder="Preço"/>
+                                <br>
+                                <label>Promoção&nbsp;</label><br><input type="text" id="promocao" name="promocao" placeholder="Promoção"/>
+                                <br>
+                                <label>Estoque&nbsp;</label><br><input type="text" id="qtdeEstoque" name="qtdeEstoque" placeholder="Estoque"/>
+                                <br>
+                                <input type='button' id='btn-salvar' value='Salvar'/>
+                                <input type="reset" value="Apagar">
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>	
+            </main>
+            <div class="clear"></div>
+            <footer>			
+                <div class="icones-sociais">
+                    <span class="insta"><i class="fab fa-instagram" style="font-size:24px" title="Instagram"></i></span>
+                    <span class="face"><i class="fab fa-facebook-f" style="font-size:24px" title="Facebook"></i></span>
+                    <span class="twitter"><i class="fab fa-twitter" style="font-size:24px" title="Twitter"></i></span>
+                    <span class="youtube"><i class="fab fa-youtube" style="font-size:24px" title="YouTube"></i></span>
+                </div>
+                <img class="logo-grande" src="../img/teste.png">
+                <p>Galian - Comércio de Produtos de Beleza LTDA.</p>
+                <p>Rua Principal, 1822, Novo Machado, RS, CEP 95955-00</p>
+                <p>CNPJ 22.248.62/1517-52</p>
+            </footer>
+        </div>		
+        <script src="../script/form-produto.js"></script>		
+    </body>    
+</html>    
