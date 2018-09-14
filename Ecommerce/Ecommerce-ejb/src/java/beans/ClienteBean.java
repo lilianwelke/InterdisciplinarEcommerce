@@ -10,12 +10,12 @@ import model.Cliente;
 public class ClienteBean implements ClienteBeanRemote, ClienteBeanLocal {
 
     @Override
-    public void cadastrarCliente(int ccliente, String cliente, String cpf, String endereco,
+    public void cadastrarCliente(String cliente, String cpf, String endereco,
             String cidade, String cep, String uf, String telefone, String senha) {
 
         try {
             ClienteDAO clienteDAO = new ClienteDAO();
-            Cliente client = clienteDAO.inserirCliente(ccliente, cliente, cpf, endereco, cidade, cep, uf, telefone, senha);
+            Cliente client = clienteDAO.inserirCliente(cliente, cpf, endereco, cidade, cep, uf, telefone, senha);
         } catch (Exception ex) {
             Logger.getLogger(ClienteBean.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -42,5 +42,16 @@ public class ClienteBean implements ClienteBeanRemote, ClienteBeanLocal {
         } catch (Exception ex) {
             Logger.getLogger(ClienteBean.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public Cliente getProdutoById(String cliente) {
+        Cliente cli = null;
+        try {
+            ClienteDAO clienteDAO = new ClienteDAO();
+            cli = clienteDAO.findByCpf(cliente);
+        } catch (Exception ex) {
+            Logger.getLogger(ProdutoBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cli;
     }
 }

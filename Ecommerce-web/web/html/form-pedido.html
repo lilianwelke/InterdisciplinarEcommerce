@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="LILIAN GABI">
+        <meta name="keywords" content="ECOMMERCE">
+        <meta name="description" content="ECOMMERCE GALIAN">             
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/form-pedido.css">
+        <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+        <!--[if lt IE 9]>
+        <script src="../script/html5shiv.js"></script>
+        <![endif]-->
+        <script src="../script/html5shiv.js"></script>        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <title>Galian - Compra</title>
+    </head>  
+    <body>
+        <div class="container">
+            <div class="overlay"></div>
+            <header class="head">
+                <a href=""><img class="logo" src="../img/teste.png" title="Início"></a>
+                <a href=""><h1 class="nome" title="Início">Galian</h1></a>
+                <form class="form-pesquisa">
+                    <input name="conteudo-pesquisa" class="pesquisa" type="search" placeholder="O que você quer?">
+                </form>
+                <span class="lupa"><i class="fa fa-search" style="font-size:24px"></i></span>
+                <span class="carrinho"><i class="fa fa-shopping-cart" style="font-size:28px"></i></span>
+            </header>
+            <nav>				
+                <ul class="menul">   
+                    <li><a href="">Maquiagem</a></li>
+                    <li><a href="">Perfumaria</a></li>
+                    <li><a href="">Cabelos</a></li>
+                    <li><a href="">Cuidados</a></li>
+                    <li><a href="">Corpo & Banho</a></li>
+                    <li><a href="">Marcas</a></li>
+                    <li><a href="">Pedido</a></li>
+                </ul>				
+            </nav>
+            <main>
+                <section>
+                    <div class="cabecalhoCar">
+                        <h2>Finalizar Compra</h2>
+                        <div class="produto-max">	
+                            <div class="cpf-div">
+                                <label>Informe seu CPF:</label>
+                                <input type="text" />
+                            </div>
+                            <div id="continuar-compra"><a href="">Continuar</a></div>												
+                        </div>
+                    </div>
+
+                    <div class="cabecalhoConf">
+                        <h2>Confirmar Compra</h2>
+                        <div class="produto-conf">	
+                            <div class="confirmar-div">                                							
+                            </div>
+                            <div id="confirmar-compra"><a href="">Confirmar</a></div>												
+                        </div>
+                    </div>	
+
+                    <div class="cabecalhoSucesso">						
+                        <div class="produto-suces">	
+                            <h2>Compra Realizada com Sucesso!</h2>											
+                        </div>
+                    </div>						
+
+                    <div class="conteudo">
+                        <div class="div-cabCliente">
+                            <h2>Seu cadastro não foi encontrado.</h2>
+                            <h2>Você pode realizá-lo agora!</h2>
+                        </div>
+                        <div class="conteudo-formulario">						
+                            <form>
+                                <fieldset>
+                                    <legend>Cadastro Cliente</legend>                                    
+                                    <label>Nome:&nbsp;</label><br><input type="text" id="nome" name="nome" placeholder="Nome"/>
+                                    <br>
+                                    <label>CPF:&nbsp;</label><br><input type="text" id="cpf" name="cpf" placeholder="CPF"/>
+                                    <br>
+                                    <label>Endereço:&nbsp;</label><br><input type="text" id="endereco" name="endereco" placeholder="Endereço"/>
+                                    <br>
+                                    <label>Cidade:&nbsp;</label><br><input type="text" id="cidade" name="cidade" placeholder="Cidade"/>
+                                    <br>
+                                    <label>CEP:&nbsp;</label><br><input type="text" id="cep" name="cep" placeholder="CEP"/>
+                                    <br>
+                                    <label>UF:&nbsp;</label><br><input type="text" id="uf" name="uf" placeholder="UF"/>
+                                    <br>
+                                    <label>Telefone:&nbsp;</label><br><input type="text" id="telefone" name="telefone" placeholder="Telefone"/>
+                                    <br>
+                                    <input type='button' id='btn-salvar' value='Salvar'/>							 
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div> 
+
+                </section>			
+            </main>
+            <div class="clear"></div>
+            <footer>			
+                <div class="icones-sociais">
+                    <span class="insta"><i class="fab fa-instagram" style="font-size:24px" title="Instagram"></i></span>
+                    <span class="face"><i class="fab fa-facebook-f" style="font-size:24px" title="Facebook"></i></span>
+                    <span class="twitter"><i class="fab fa-twitter" style="font-size:24px" title="Twitter"></i></span>
+                    <span class="youtube"><i class="fab fa-youtube" style="font-size:24px" title="YouTube"></i></span>
+                </div>
+                <img class="logo-grande" src="../img/teste.png">
+                <p>Galian - Comércio de Produtos de Beleza LTDA.</p>
+                <p>Rua Principal, 1822, Novo Machado, RS, CEP 95955-00</p>
+                <p>CNPJ 22.248.62/1517-52</p>
+            </footer>
+        </div>	
+        <script src="../script/form-pedido.js"></script>
+    </body>
+</html>

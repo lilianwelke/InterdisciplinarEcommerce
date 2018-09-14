@@ -7,10 +7,6 @@ public class Categoria implements Serializable {
     private int ccategoria;
     private String categoria;
 
-    public String toString() {
-        return "{\"ccategoria\": \"" + this.ccategoria + "\", \"categoria\": \"" + this.categoria + "\"}";
-    }
-
     public int getCcategoria() {
         return ccategoria;
     }

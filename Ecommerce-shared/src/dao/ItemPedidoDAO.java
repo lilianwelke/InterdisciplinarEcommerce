@@ -21,17 +21,17 @@ public class ItemPedidoDAO {
         connection = ConnectionUtil.getConnection();
     }
 
-    public ItemPedido inserirItemPedido(int citemPedido, int cpedido, int cproduto, double qtdeProduto, double precoProduto) throws Exception {
+    public ItemPedido inserirItemPedido(int cpedido, int cproduto, String qtdeProduto, double precoProduto) throws Exception {
 
         try {
             ItemPedido itemPedido = new ItemPedido();
-            String SQL = "INSERT INTO ITEMPEDIDO (CITEMPEDIDO, CPEDIDO, CPRODUTO, QTDEPRODUTO, PRECOPRODUTO) VALUES (?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO ITEMPEDIDO (CPEDIDO, CPRODUTO, QTDEPRODUTO, PRECOPRODUTO) VALUES (?, ?, ?, ?)";
             PreparedStatement p = connection.prepareStatement(SQL);
-            p.setInt(1, citemPedido);
-            p.setInt(2, cpedido);
-            p.setInt(3, cproduto);
-            p.setDouble(4, qtdeProduto);
-            p.setDouble(5, precoProduto);
+
+            p.setInt(1, cpedido);
+            p.setInt(2, cproduto);
+            p.setString(3, qtdeProduto);
+            p.setDouble(4, precoProduto);
             p.execute();
             p.close();
             return itemPedido;
@@ -40,14 +40,14 @@ public class ItemPedidoDAO {
         }
     }
 
-    public ItemPedido atualizarItemPedido(int citemPedido, int cpedido, int cproduto, double qtdeProduto, double precoProduto) throws Exception {
+    public ItemPedido atualizarItemPedido(int citemPedido, int cpedido, int cproduto, String qtdeProduto, double precoProduto) throws Exception {
         try {
             ItemPedido itemPedido = new ItemPedido();
             String SQL = "UPDATE ITEMPEDIDO SET CPEDIDO=?, CPRODUTO=?, QTDEPRODUTO=?, PRECOPRODUTO=? WHERE CITEMPEDIDO=?";
             PreparedStatement p = connection.prepareStatement(SQL);
             p.setInt(1, cpedido);
             p.setInt(2, cproduto);
-            p.setDouble(3, qtdeProduto);
+            p.setString(3, qtdeProduto);
             p.setDouble(4, precoProduto);
             p.setInt(5, citemPedido);
             p.execute();
@@ -89,7 +89,7 @@ public class ItemPedidoDAO {
 
             while (rs.next()) {
                 itemPedido.setCitemPedido(rs.getInt("citempedido"));
-                itemPedido.setQtdeProduto(rs.getDouble("qtdeproduto"));
+                itemPedido.setQtdeProduto(rs.getString("qtdeproduto"));
                 itemPedido.setPrecoProduto(rs.getDouble("precoproduto"));
 
                 pedido.setCpedido(rs.getInt("cpedido"));
@@ -126,7 +126,7 @@ public class ItemPedidoDAO {
 
             while (rs.next()) {
                 itemPedido.setCitemPedido(rs.getInt("citempedido"));
-                itemPedido.setQtdeProduto(rs.getDouble("qtdeproduto"));
+                itemPedido.setQtdeProduto(rs.getString("qtdeproduto"));
                 itemPedido.setPrecoProduto(rs.getDouble("precoproduto"));
 
                 pedido.setCpedido(rs.getInt("cpedido"));
@@ -164,7 +164,7 @@ public class ItemPedidoDAO {
 
             while (rs.next()) {
                 itemPedido.setCitemPedido(rs.getInt("citempedido"));
-                itemPedido.setQtdeProduto(rs.getDouble("qtdeproduto"));
+                itemPedido.setQtdeProduto(rs.getString("qtdeproduto"));
                 itemPedido.setPrecoProduto(rs.getDouble("precoproduto"));
 
                 pedido.setCpedido(rs.getInt("cpedido"));

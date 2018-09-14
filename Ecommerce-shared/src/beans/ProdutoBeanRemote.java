@@ -36,7 +36,7 @@ public interface ProdutoBeanRemote {
 
     public List<Produto> getTipo(int cproduto, int ccategoria, int cmarca);
 
-    public List<Produto> getConsulta(int cproduto, int ccategoria, int cmarca, String produto);
+    public List<Produto> getConsulta(String produto);
 
     public List<Categoria> getCategoria();
 

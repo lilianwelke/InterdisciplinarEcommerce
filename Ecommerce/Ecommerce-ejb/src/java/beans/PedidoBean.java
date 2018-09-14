@@ -15,11 +15,11 @@ import model.Pedido;
 public class PedidoBean implements PedidoBeanRemote, PedidoBeanLocal {
 
     @Override
-    public void cadastrarItem(int citemPedido, int cpedido, int cproduto, double qtdeProduto, double precoProduto) {
+    public void cadastrarItem(int cpedido, int cproduto, String qtdeProduto, double precoProduto) {
 
         try {
             ItemPedidoDAO itemPedidoDAO = new ItemPedidoDAO();
-            ItemPedido itemPedido = itemPedidoDAO.inserirItemPedido(citemPedido, cpedido, cproduto, qtdeProduto, precoProduto);
+            ItemPedido itemPedido = itemPedidoDAO.inserirItemPedido(cpedido, cproduto, qtdeProduto, precoProduto);
         } catch (Exception ex) {
             Logger.getLogger(PedidoBean.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -27,7 +27,7 @@ public class PedidoBean implements PedidoBeanRemote, PedidoBeanLocal {
     }
 
     @Override
-    public void atualizarItem(int citemPedido, int cpedido, int cproduto, double qtdeProduto, double precoProduto) {
+    public void atualizarItem(int citemPedido, int cpedido, int cproduto, String qtdeProduto, double precoProduto) {
 
         try {
             ItemPedidoDAO itemPedidoDAO = new ItemPedidoDAO();
@@ -51,18 +51,20 @@ public class PedidoBean implements PedidoBeanRemote, PedidoBeanLocal {
     }
 
     @Override
-    public void cadastrarPedido(int cpedido, int ccliente, Date dataCompra, double totalCompra,
+    public Pedido cadastrarPedido(int ccliente, Date dataCompra, double totalCompra,
             String pagamento, String concluida, double frete) {
-
+        Pedido pedido = null;
         try {
             //if (concluida.equals("N")) {
             PedidoDAO pedidoDAO = new PedidoDAO();
-            Pedido pedido = pedidoDAO.inserirPedido(cpedido, ccliente, dataCompra, totalCompra, pagamento, concluida, frete);
+            pedido = pedidoDAO.inserirPedido(ccliente, dataCompra, totalCompra, pagamento, concluida, frete);
             //}
 
         } catch (Exception ex) {
             Logger.getLogger(PedidoBean.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        return pedido;
 
     }
 

@@ -5,8 +5,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringReader;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.stream.Collectors;
 import javax.ejb.EJB;
@@ -17,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Pedido;
 
 /**
  *
@@ -40,24 +39,16 @@ public class RegistrarPedidoServlet extends HttpServlet {
         JsonReader reader = Json.createReader(new StringReader(content));
         JsonObject regitroPedido = reader.readObject();
 
-        int cpedido = regitroPedido.getJsonNumber("cpedido").intValue();
         int ccliente = regitroPedido.getJsonNumber("ccliente").intValue();
-        String dataCompra = regitroPedido.getJsonString("dataCompra").getString();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        Date data = null;
-        try {
-            data = formatter.parse(dataCompra);
-        } catch (ParseException ex) {
-            throw new ServletException(ex);
-        }
+
         double totalCompra = regitroPedido.getJsonNumber("totalCompra").doubleValue();
         String pagamento = regitroPedido.getJsonString("pagamento").getString();
         String concluida = regitroPedido.getJsonString("concluida").getString();
         double frete = regitroPedido.getJsonNumber("frete").doubleValue();
 
-        bean.cadastrarPedido(cpedido, ccliente, data, totalCompra, pagamento, concluida, frete);
+        Pedido pedid = bean.cadastrarPedido(ccliente, new Date(), totalCompra, pagamento, concluida, frete);
 
-        saida.print("{\"msg\":\"Certo\"}");
+        saida.print("{\"msg\":\"Certo\", \"cPedido\":" + pedid.getCpedido() + "}");
     }
 
 }

@@ -31,19 +31,18 @@ public class RegistrarClienteServlet extends HttpServlet {
         }
 
         JsonReader reader = Json.createReader(new StringReader(content));
-        JsonObject regitroCliente = reader.readObject();
+        JsonObject registroCliente = reader.readObject();
 
-        int ccliente = regitroCliente.getJsonNumber("ccliente").intValue();
-        String cliente = regitroCliente.getJsonString("cliente").getString();
-        String cpf = regitroCliente.getJsonString("cpf").getString();
-        String endereco = regitroCliente.getJsonString("endereco").getString();
-        String cidade = regitroCliente.getJsonString("cidade").getString();
-        String cep = regitroCliente.getJsonString("cep").getString();
-        String uf = regitroCliente.getJsonString("uf").getString();
-        String telefone = regitroCliente.getJsonString("telefone").getString();
-        String senha = regitroCliente.getJsonString("senha").getString();
+        String cliente = registroCliente.getJsonString("cliente").getString();
+        String cpf = registroCliente.getJsonString("cpf").getString();
+        String endereco = registroCliente.getJsonString("endereco").getString();
+        String cidade = registroCliente.getJsonString("cidade").getString();
+        String cep = registroCliente.getJsonString("cep").getString();
+        String uf = registroCliente.getJsonString("uf").getString();
+        String telefone = registroCliente.getJsonString("telefone").getString();
+        String senha = "";
 
-        bean.cadastrarCliente(ccliente, cliente, cpf, endereco, cidade, cep, uf, telefone, senha);
+        bean.cadastrarCliente(cliente, cpf, endereco, cidade, cep, uf, telefone, senha);
 
         saida.print("{\"msg\":\"Certo\"}");
     }

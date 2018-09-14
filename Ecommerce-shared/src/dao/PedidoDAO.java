@@ -21,22 +21,29 @@ public class PedidoDAO {
         connection = ConnectionUtil.getConnection();
     }
 
-    public Pedido inserirPedido(int cpedido, int ccliente, Date dataCompra, double totalCompra,
+    public Pedido inserirPedido(int ccliente, Date dataCompra, double totalCompra,
             String pagamento, String concluida, double frete) throws Exception {
 
         try {
             Pedido pedid = new Pedido();
-            String SQL = "INSERT INTO PEDIDO (CPEDIDO, CCLIENTE, DATACOMPRA, TOTALCOMPRA, PAGAMENTO, CONCLUIDA, FRETE) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO PEDIDO (CCLIENTE, DATACOMPRA, TOTALCOMPRA, PAGAMENTO, CONCLUIDA, FRETE) "
+                    + " VALUES (?, ?, ?, ?, ?, ?) RETURNING cpedido";
             PreparedStatement p = connection.prepareStatement(SQL);
-            p.setInt(1, cpedido);
-            p.setInt(2, ccliente);
-            p.setDate(3, new java.sql.Date(dataCompra.getTime()));
-            p.setDouble(4, totalCompra);
-            p.setString(5, pagamento);
-            p.setString(6, concluida);
-            p.setDouble(7, frete);
-            p.execute();
+
+            p.setInt(1, ccliente);
+            p.setDate(2, new java.sql.Date(dataCompra.getTime()));
+            p.setDouble(3, totalCompra);
+            p.setString(4, pagamento);
+            p.setString(5, concluida);
+            p.setDouble(6, frete);
+//            p.execute();
+            ResultSet rs = p.executeQuery();
+            int ultimoInserido = 0;
+            while (rs.next()) {
+                ultimoInserido = rs.getInt("cpedido");
+            }
             p.close();
+            pedid.setCpedido(ultimoInserido);
             return pedid;
         } catch (SQLException ex) {
             throw new Exception(ex);

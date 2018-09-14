@@ -7,14 +7,8 @@ public class ItemPedido implements Serializable {
     private int citemPedido;
     private Pedido cpedido;
     private Produto cproduto;
-    private double qtdeProduto;
+    private String qtdeProduto;
     private double precoProduto;
-
-    public String toString() {
-        return "{\"citemPedido\": \"" + this.citemPedido + "\", \"cpedido\": \"" + this.cpedido + "\", "
-                + "\"cproduto\": \"" + this.cproduto + "\", \"qtdeProduto\": \"" + this.qtdeProduto + "\", "
-                + "\"precoProduto\": \"" + this.precoProduto + "\"}";
-    }
 
     public int getCitemPedido() {
         return citemPedido;
@@ -40,11 +34,11 @@ public class ItemPedido implements Serializable {
         this.cproduto = cproduto;
     }
 
-    public double getQtdeProduto() {
+    public String getQtdeProduto() {
         return qtdeProduto;
     }
 
-    public void setQtdeProduto(double qtdeProduto) {
+    public void setQtdeProduto(String qtdeProduto) {
         this.qtdeProduto = qtdeProduto;
     }
 

@@ -13,13 +13,6 @@ public class Pedido implements Serializable {
     private String concluida;
     private double frete;
 
-    public String toString() {
-        return "{\"cpedido\": \"" + this.cpedido + "\", \"ccliente\": \"" + this.ccliente + "\", "
-                + "\"dataCompra\": \"" + this.dataCompra + "\", \"totalCompra\": \"" + this.totalCompra + "\", "
-                + "\"pagamento\": \"" + this.pagamento + "\", \"concluida\": \"" + this.concluida + "\", "
-                + "\"frete\": \"" + this.frete + "\"}";
-    }
-
     public int getCpedido() {
         return cpedido;
     }

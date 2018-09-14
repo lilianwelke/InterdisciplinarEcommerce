@@ -31,20 +31,21 @@ public class ListarProdutosServlet extends HttpServlet {
         resp.setContentType("aplicarion/json");
         PrintWriter saida = resp.getWriter();
 
-        String retornoProduto = "", retornoCategoria = "", retornoMarca = "";
+        String retornoProduto = "", retornoCategoria = "", retornoMarca = "", retornoConsulta = "", produto = "";
         try {
 
             ObjectMapper mapper = new ObjectMapper();
+
             retornoProduto = mapper.writeValueAsString(bean.getProduto());
             retornoCategoria = mapper.writeValueAsString(bean.getCategoria());
             retornoMarca = mapper.writeValueAsString(bean.getMarca());
-            //search
-            //produto - categoria - marca
-//bean.getMarca().toString() + bean.getProduto().toString();
+
+            produto = req.getParameter("produto");
+            retornoConsulta = mapper.writeValueAsString(bean.getConsulta(produto));
+
         } catch (Exception ex) {
             Logger.getLogger(ListarProdutosServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        saida.write(retornoProduto + "#GL#" + retornoCategoria + "#GL#" + retornoMarca);
+        saida.write(retornoProduto + "#GL#" + retornoCategoria + "#GL#" + retornoMarca + "#GL#" + retornoConsulta);
     }
 }

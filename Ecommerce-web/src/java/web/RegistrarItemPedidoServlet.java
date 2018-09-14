@@ -33,13 +33,12 @@ public class RegistrarItemPedidoServlet extends HttpServlet {
         JsonReader reader = Json.createReader(new StringReader(content));
         JsonObject regitroItemPedido = reader.readObject();
 
-        int citemPedido = regitroItemPedido.getJsonNumber("citemPedido").intValue();
         int cpedido = regitroItemPedido.getJsonNumber("cpedido").intValue();
         int cproduto = regitroItemPedido.getJsonNumber("cproduto").intValue();
-        double qtdeProduto = regitroItemPedido.getJsonNumber("qtdeProduto").doubleValue();
+        String qtdeProduto = regitroItemPedido.getJsonString("qtdeProduto").getString();
         double precoProduto = regitroItemPedido.getJsonNumber("precoProduto").doubleValue();
 
-        bean.cadastrarItem(citemPedido, cpedido, cproduto, qtdeProduto, precoProduto);
+        bean.cadastrarItem(cpedido, cproduto, qtdeProduto, precoProduto);
 
         saida.print("{\"msg\":\"Certo\"}");
     }

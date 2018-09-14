@@ -18,13 +18,13 @@ import model.Pedido;
 @Remote
 public interface PedidoBeanRemote {
 
-    public void cadastrarItem(int citemPedido, int cpedido, int cproduto, double qtdeProduto, double precoProduto);
+    public void cadastrarItem(int cpedido, int cproduto, String qtdeProduto, double precoProduto);
 
-    public void atualizarItem(int citemPedido, int cpedido, int cproduto, double qtdeProduto, double precoProduto);
+    public void atualizarItem(int citemPedido, int cpedido, int cproduto, String qtdeProduto, double precoProduto);
 
     public void deletarItem(int citemPedido);
 
-    public void cadastrarPedido(int cpedido, int ccliente, Date dataCompra, double totalCompra, String pagamento, String concluida, double frete);
+    public Pedido cadastrarPedido(int ccliente, Date dataCompra, double totalCompra, String pagamento, String concluida, double frete);
 
     public void atualizarPedido(int cpedido, int ccliente, Date dataCompra, double totalCompra, String pagamento, String concluida, double frete);
 

@@ -167,11 +167,11 @@ public class ProdutoBean implements ProdutoBeanRemote, ProdutoBeanLocal {
         return prod;
     }
 
-    public List<Produto> getConsulta(int cproduto, int ccategoria, int cmarca, String produto) {
+    public List<Produto> getConsulta(String produto) {
         ArrayList<Produto> prod = null;
         try {
             ProdutoDAO produtoDAO = new ProdutoDAO();
-            prod = (ArrayList<Produto>) produtoDAO.pesquisaProduto(cproduto, ccategoria, cmarca, produto);
+            prod = (ArrayList<Produto>) produtoDAO.pesquisaProduto(produto);
         } catch (Exception ex) {
             Logger.getLogger(ProdutoBean.class.getName()).log(Level.SEVERE, null, ex);
         }
